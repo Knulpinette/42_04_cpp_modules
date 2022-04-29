@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cctype>
-#include <string>
 
 int main(int argc, char **argv) {
 	std::string buffer;	
@@ -21,7 +19,7 @@ int main(int argc, char **argv) {
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
 	{
-		for (int i = 1; argv[i]; i++) 
+		for (int i = 1; i < argc; i++) 
 			buffer += argv[i];
 		for (int i = 0; buffer[i]; i++)
 			buffer[i] = std::toupper(buffer[i]);
