@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "./Contact.hpp"
+#include "Contact.hpp"
 
 int		input_is_valid(std::string input)
 {
@@ -67,9 +66,9 @@ int main(void)
 			break ;
 		}
 		/*else if (input == "ADD")
-			add_contact();
+			Phonebook.addContact();
 		else if (input == "SEARCH")
-			search_contact();*/
+			Phonebook.searchContact();*/
 	}	
 	std::cout << std::endl;
 	return (0);

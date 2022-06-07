@@ -9,3 +9,13 @@ Phonebook::~Phonebook(void)
 {
 	//std::cout << "[Deconstructing Phonebook]" << std::endl;
 }
+
+void	addContact(void)
+{
+	//yo
+}
+
+void	searchContact(void)
+{
+	//
+}
