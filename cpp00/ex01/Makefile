@@ -17,7 +17,7 @@ NAME	= awesome_phonebook
 # -*- Definitions of variables -*-
 
 SRCS_DIR		= ./
-SRCS			:= Contact.cpp Phonebook.cpp awesome_phonebook.cpp
+SRCS			:= Contact.cpp Phonebook.cpp main.cpp
 
 CC			= clang++
 RM			= rm -f

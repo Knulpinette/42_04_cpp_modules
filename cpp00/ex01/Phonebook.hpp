@@ -3,12 +3,14 @@
 
 #include "Contact.hpp"
 
+#define MAX_NB_CONTACTS 8
+
 class Phonebook
 {
 	private:
-		//int		nb_contacts;
-		Contact	oldestContact;
-		Contact contacts[8];
+		int		nbContacts = 0;
+		int		index = 0;
+		Contact	contacts[MAX_NB_CONTACTS];
 
 	public:
 		Phonebook(void); // constructor

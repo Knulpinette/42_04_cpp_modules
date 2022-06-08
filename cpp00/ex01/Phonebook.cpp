@@ -10,10 +10,7 @@ Phonebook::~Phonebook(void)
 	//std::cout << "[Deconstructing Phonebook]" << std::endl;
 }
 
-/*q
-	if ADD : first name, last name, nickname, phone number, darkest secret
-		Phone Book must be an instance of a class and must contain an array of contacts
-		Contacts must be an instance of my class in the code.
+/*
 	if SEARCH : if contact is empty, don't show
 			index, first name, last name, nickname (four column)
 			each column must be 10 char wide, right aligned, and separated by a pipe char.
@@ -22,12 +19,43 @@ Phonebook::~Phonebook(void)
 
 void	Phonebook::addContact(void)
 {
-	std::cout << "adding... contact" << std::endl;
-	std::cout << std::endl;
+	Contact newContact;
+
+	newContact.getInfos();
+	if (index == MAX_NB_CONTACTS)
+		index = 0;
+	contacts[index] = newContact;
+	if (nbContacts < MAX_NB_CONTACTS)
+		nbContacts++;
+	index++;
 }
+
+/*
+	std::cin.fail() checks if the standard input is a number.
+	std::cin.clear() clears the input.
+*/
 
 void	Phonebook::searchContact(void)
 {
-	std::cout << "searching... contact" << std::endl;
-	std::cout << std::endl;
+	//int		i;
+
+	if (nbContacts == 0)
+	{
+		std::cout << "	🤷 You gotta write something in me first."
+					<< std::endl;
+		return;
+	}
+	/*for (i = 0; i < nbContacts; i++)
+		contacts[i].printDetailsList();*/
+	std::cout << "Enter the contact ID you want to show : ";
+	long	contactID;
+	std::cin >> contactID;
+	if (std::cin.fail() || contactID <= 0 || contactID >= nbContacts + 1)
+	{
+		if (std::cin.fail())
+			std::cin.clear();
+		std::cout << "	🤷 This ID does not exist!" << std::endl;
+	}
+	else
+		contacts[contactID - 1].printDetailsList();
 }
