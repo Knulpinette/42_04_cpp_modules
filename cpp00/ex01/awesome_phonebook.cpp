@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include "colors.hpp"
+#include "Phonebook.hpp"
 
 int		input_is_valid(std::string input)
 {

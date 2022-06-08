@@ -1,15 +1,15 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include <iostream>
-
-#define MAX_CONTACT 8
-/* 
-	Can't store more than 8 contacts (if 9 => replace the oldest contact
-*/
+#include "Contact.hpp"
 
 class Phonebook
 {
+	private:
+		//int		nb_contacts;
+		Contact	oldestContact;
+		Contact contacts[8];
+
 	public:
 		Phonebook(void); // constructor
 		~Phonebook(void); // deconstructor
