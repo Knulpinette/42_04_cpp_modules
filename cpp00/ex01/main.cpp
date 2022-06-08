@@ -12,6 +12,24 @@
 
 #include "Phonebook.hpp"
 
+/* 🦕
+	MY_AWESOME_PHONEBOOK
+
+	Can't store more than 8 contacts (if 9, you have to replace the oldest contact)
+	INPUT COMMAND : EXIT, ADD, SEARCH
+	if EXIT : quit and be wiped clean
+	if ADD : first name, last name, nickname, phone number, darkest secret
+		Phone Book must be an instance of a class and must contain an array of contacts
+		Contacts must be an instance of my class in the code.
+	if SEARCH : if contact is empty, don't show
+		index, first name, last name, nickname (four column)
+		each column must be 10 char wide, right aligned, and separated by a pipe char.
+		any input that's longer must be truncated and the last displayable char is replaced by "."
+		User can then type the desired contactID to show all details of the contact.
+	else
+		Input is ignored / discarded and we loop forever
+	🦕 */
+
 void	display_instructions(void)
 {
 	std::cout << std::endl

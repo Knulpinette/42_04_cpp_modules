@@ -1,14 +1,7 @@
 #include "Contact.hpp"
 
-Contact::Contact(void)
-{
-	//std::cout << "[Constructing Contact]" << std::endl;
-}
-
-Contact::~Contact(void)
-{
-	//std::cout << "[Deconstructing Contact]" << std::endl;
-}
+Contact::Contact(void){}
+Contact::~Contact(void){}
 
 /* 
 	std::getline works as follows : 

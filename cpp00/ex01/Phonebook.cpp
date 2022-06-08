@@ -1,21 +1,7 @@
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook(void)
-{
-	//std::cout << "[Constructing Phonebook]" << std::endl;
-}
-
-Phonebook::~Phonebook(void)
-{
-	//std::cout << "[Deconstructing Phonebook]" << std::endl;
-}
-
-/*
-	if SEARCH : if contact is empty, don't show
-			index, first name, last name, nickname (four column)
-			each column must be 10 char wide, right aligned, and separated by a pipe char.
-			any input that's longer must be truncated and the last displayable char is replaced by "." 
-*/
+Phonebook::Phonebook(void){}
+Phonebook::~Phonebook(void){}
 
 void	Phonebook::addContact(void)
 {
