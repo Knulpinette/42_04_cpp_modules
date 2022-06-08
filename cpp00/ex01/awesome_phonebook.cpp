@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include "colors.hpp"
 
 int		input_is_valid(std::string input)
 {
@@ -23,27 +24,8 @@ int		input_is_valid(std::string input)
 	return (0);
 }
 
-int main(void) 
+void	display_instructions(void)
 {
-
-	/* 
-	Can't store more than 8 contacts (if 9 => replace the oldest contact)
-	INPUT COMMAND : EXIT, ADD, SEARCH
-	if EXIT : quit and loose contacts
-	if ADD : first name, last name, nickname, phone number, darkest secret
-		Phone Book must be an instance of a class and must contain an array of contacts
-		Contacts must be an instance of my class in the code.
-	if SEARCH : if contact is empty, don't show
-			index, first name, last name, nickname (four column)
-			each column must be 10 char wide, right aligned, and separated by a pipe char.
-			any input that's longer must be truncated and the last displayable char is replaced by "."
-	then waits for next command (until EXIT)
-	else
-		Input is ignored / discarded
-	*/
-	std::string	input;
-	Phonebook Phonebook;
-
 	std::cout << std::endl
 				<< "	☎️ Welcome to this awesome crappy phonebook! 📖" << std::endl
 				<< std::endl
@@ -53,23 +35,32 @@ int main(void)
 				<<		"	🔎  SEARCH" << std::endl
 				<<		"	🚪  EXIT" << std::endl
 				<< "	That's it. Yup. Have fun. ❤️" << std::endl << std::endl;
-	while (1)
+}
+
+int main(void) 
+{
+	std::string	input;
+	Phonebook 	Phonebook;
+
+	display_instructions();
+	while (true)
 	{
-		while(!input_is_valid(input))
+		if(!input_is_valid(input))
 		{
 			std::cout << "You want to (ADD / SEARCH / EXIT): ";
 			std::cin >> input;
 		}
 		if (input == "EXIT")
 		{
-			std::cout << "🚪🤙 Come back next time!" << std::endl;
-			break ;
+			std::cout << "🚪🤙 Don't come back next time! 💩 " << std::endl;
+			exit(EXIT_SUCCESS);
 		}
-		/*else if (input == "ADD")
+		else if (input == "ADD")
 			Phonebook.addContact();
 		else if (input == "SEARCH")
-			Phonebook.searchContact();*/
-	}	
+			Phonebook.searchContact();
+		input = "";
+	}
 	std::cout << std::endl;
 	return (0);
 }
