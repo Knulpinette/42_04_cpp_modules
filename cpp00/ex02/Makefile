@@ -12,12 +12,12 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= awesome_phonebook
+NAME	= account_log
 
 # -*- Definitions of variables -*-
 
 SRCS_DIR		= ./
-SRCS			:= Contact.cpp Phonebook.cpp main.cpp
+SRCS			:= Account.cpp tests.cpp
 
 CC			= clang++
 RM			= rm -f
@@ -50,7 +50,7 @@ all:		${NAME}
 ${NAME}:	${SRCS}
 			@printf "\n"
 			@$(CC) ${CFLAGS} ${SRCS} -o $(NAME)
-			@printf "	${WHITE}[${GREEN} Success. Compiled phonebook.${WHITE}]\
+			@printf "	${WHITE}[${GREEN} Success. Compiled accounts.${WHITE}]\
 			${END} \n\n"
 
 bonus:		${NAME} 
@@ -59,7 +59,7 @@ bonus:		${NAME}
 
 clean:
 			@${RM} ${NAME}
-			@printf "\n	${WHITE}[${BLUE} Cleaned phonebook output files ${WHITE}]\
+			@printf "\n	${WHITE}[${BLUE} Cleaned accounts output files ${WHITE}]\
 			${END}\n"
 
 fclean:		clean
