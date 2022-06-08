@@ -12,9 +12,11 @@ class Phonebook
 		int		index = 0;
 		Contact	contacts[MAX_NB_CONTACTS];
 
+		void	printBook();
+
 	public:
-		Phonebook(void); // constructor
-		~Phonebook(void); // deconstructor
+				Phonebook(void); // constructor
+				~Phonebook(void); // deconstructor
 		void	addContact();
 		void	searchContact();
 };

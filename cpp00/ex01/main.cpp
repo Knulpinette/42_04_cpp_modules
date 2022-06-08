@@ -12,17 +12,6 @@
 
 #include "Phonebook.hpp"
 
-int		input_is_valid(std::string input)
-{
-	if (input == "ADD")
-		return (1);
-	else if (input == "SEARCH")
-		return (1);
-	else if (input == "EXIT")
-		return (1);
-	return (0);
-}
-
 void	display_instructions(void)
 {
 	std::cout << std::endl
@@ -44,18 +33,23 @@ int main(void)
 	display_instructions();
 	while (true)
 	{
-		input = '\0';
-		std::cout << "You want to (ADD / SEARCH / EXIT): ";
+		std::cout << "You want to: ";
 		std::cin >> input;
 		if (input == "EXIT")
 		{
-			std::cout << "🚪🤙 Don't come back next time! 💩 " << std::endl;
+			std::cout << std::endl
+						<< "🚪🤙 Don't come back next time! 💩 " 
+						<< std::endl
+						<< std::endl;
 			exit(EXIT_SUCCESS);
 		}
 		else if (input == "ADD")
 			Phonebook.addContact();
 		else if (input == "SEARCH")
 			Phonebook.searchContact();
+		else
+			std::cout << "You can only ADD, SEARCH or EXIT." << std::endl;
+		input.clear(); /* erases the contents of the string */
 	}
 	std::cout << std::endl;
 	return (0);
