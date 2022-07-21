@@ -1,5 +1,8 @@
 **/.vscode/
 **/.DS_Store
+**/objs
+
 cpp00/ex00/megaphone
 cpp00/ex01/awesome_phonebook
 cpp00/ex02/account_log
+michele_cpp_modules

@@ -16,13 +16,21 @@ NAME	= account_log
 
 # -*- Definitions of variables -*-
 
-SRCS_DIR		= ./
+SRCS_DIR		=  
+OBJS_DIR		= objs
+
 SRCS			:= Account.cpp tests.cpp
+OBJS			:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
+
+# HEADERS			=	$(shell find *.hpp)
+HEADERS			= Account.hpp
+
+ĨNCLUDES	= -I $(HEADERS)
 
 CC			= clang++
 RM			= rm -f
 MAKE		= make
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -std=c++98 -Wall -Wextra -Werror
 
 # Colors
 
@@ -41,28 +49,37 @@ END			= \e[0m
 
 #	Implicit rules
 
-#	Active rules
-
-all:		${NAME}
+$(OBJS_DIR)/%.o: %.cpp
+			@mkdir -p $(OBJS_DIR)
+			$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 # Compilation rule
 
-${NAME}:	${SRCS}
+${NAME}:	$(HEADERS) ${OBJS}
 			@printf "\n"
-			@$(CC) ${CFLAGS} ${SRCS} -o $(NAME)
+			@$(CC) ${CFLAGS} ${INCLUDES} -o $(NAME) $(OBJS)
 			@printf "	${WHITE}[${GREEN} Success. Compiled accounts.${WHITE}]\
 			${END} \n\n"
 
 bonus:		${NAME} 
 
+#	Active rules
+
+all:		${NAME}
+
 #	Cleaning rules
 
 clean:
-			@${RM} ${NAME}
-			@printf "\n	${WHITE}[${BLUE} Cleaned accounts output files ${WHITE}]\
+			@${RM} ${OBJS}
+			@printf "\n	${WHITE}[${BLUE} Cleaned accounts object files ${WHITE}]\
 			${END}\n"
 
 fclean:		clean
+			@${RM} ${NAME}
+			@${RM} -d ${OBJS_DIR}
+			@printf "\n	${WHITE}[${BLUE} Cleaned all account files ${WHITE}]\
+			${END}\n"
+
 
 re:			fclean all
 
