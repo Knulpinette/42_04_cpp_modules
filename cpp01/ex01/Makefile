@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= zombie
+NAME	= zombie_horde
 
 # -*- Definitions of variables -*-
 
@@ -58,7 +58,7 @@ $(OBJS_DIR)/%.o: %.cpp
 ${NAME}:	$(HEADERS) ${OBJS}
 			@printf "\n"
 			@$(CC) ${CFLAGS} ${INCLUDES} -o $(NAME) $(OBJS)
-			@printf "	${WHITE}[${GREEN} Success. Compiled zombies.${WHITE}]\
+			@printf "	${WHITE}[${GREEN} Success.${WHITE}]\
 			${END} \n\n"
 
 bonus:		${NAME} 
