@@ -6,14 +6,19 @@ int main(void)
 {
         Weapon club = Weapon("crude spiked club");
 
-        HumanA bob("Bob", club);
-        bob.attack();
+        HumanA bobby("Bobby", club);
+        bobby.attack();
         club.setType("other type of club");
-        bob.attack();
+        bobby.attack();
  
-        HumanB jim("Jim");
-        jim.setWeapon(club);
-        jim.attack();
-        club.setType("other type of club");
-        jim.attack();
+        Weapon knife = Weapon("super sharp knife");
+
+        HumanB sam("Sam");
+        sam.setWeapon(knife);
+        sam.attack();
+        knife.setType("other type of knife");
+        sam.attack();
+
+        HumanB dean("Dean");
+        dean.attack();
 }

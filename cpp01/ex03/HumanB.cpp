@@ -18,5 +18,5 @@ void    HumanB::attack()
     if (weapon)
         std::cout << weapon->getType() << std::endl;
     else
-        std::cout << " fists" << std::endl;
+        std::cout << "fists" << std::endl;
 }
