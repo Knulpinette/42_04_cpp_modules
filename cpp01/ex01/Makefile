@@ -22,8 +22,7 @@ OBJS_DIR		= objs
 SRCS			:= $(shell find *.cpp)
 OBJS			:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
-# HEADERS			=	$(shell find *.hpp)
-HEADERS			= Zombie.hpp
+HEADERS			=	$(shell find *.hpp)
 
 ĨNCLUDES	= -I $(HEADERS)
 

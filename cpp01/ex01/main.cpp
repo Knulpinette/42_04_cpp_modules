@@ -2,7 +2,14 @@
 
 int main( void )
 {
-    Submit a main to test that your function zombieHorde works as intended. You may
-    want to do so by calling announce() on each one of the Zombies. Do not forget to delete
-    ALL the Zombies when you don’t need them anymore
+    const int nbZombies = 12;
+    Zombie *horde;
+
+    horde = zombieHorde(nbZombies, "dumbdumb");
+    for (int i = 0; i < nbZombies; i++)
+        horde[i].announce();
+
+    delete[] horde; // to delete an array dynamically from the heap, use delete[]
+
+    return (0);
 }

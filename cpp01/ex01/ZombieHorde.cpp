@@ -2,8 +2,12 @@
 
 Zombie* zombieHorde( int N, std::string name )
 {
-    Write a function that takes an integer N. When called, it allocates N Zombie objects.
-    It must allocate all the N Zombie objects in a single allocation. Then, it should initialize
-    each Zombie by giving to each one a name. Last, it should return the pointer to the first
-    Zombie. 
+    Zombie  *Horde = new Zombie[N];
+
+    for (int i = 0; i < N; i++)
+        Horde[i].setName(name); 
+        /* we have to do this because name is a private variable
+        and can only be accessed by a public function from the Zombie class which zombieHorde isn´t. */
+    
+    return (Horde);
 }
