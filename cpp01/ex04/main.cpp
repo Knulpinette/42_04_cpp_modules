@@ -40,12 +40,10 @@ std::string	rewrite_line(const std::string line,
 			&& line.find(original_string, position) != std::string::npos)
 	{
 		tempLine = line.substr(position, line.find(original_string, position) - position);
-		newLine += tempLine;
-		newLine += new_text;
+		newLine += tempLine + new_text;
 		position += tempLine.length() + original_string.length();
 	}
-	if (line[position])
-		newLine += line.substr(position);
+	newLine += line.substr(position);
 	return (newLine);
 }
 
