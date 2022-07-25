@@ -47,9 +47,9 @@ std::string	rewrite_line(const std::string &line,
 	return (newLine);
 }
 
-bool    replace(const std::string inFilename, 
-                const std::string original_string, 
-                const std::string new_text)
+bool    replace(const std::string &inFilename, 
+                const std::string &original_string, 
+                const std::string &new_text)
 {
     std::ifstream inFile;
     std::ofstream outFile;
