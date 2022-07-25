@@ -26,9 +26,9 @@ bool	input_is_correct(int argc, char **argv)
 		return (true);
 }
 
-std::string	rewrite_line(const std::string line,
-						 const std::string original_string,
-						 const std::string new_text)
+std::string	rewrite_line(const std::string &line,
+						 const std::string &original_string,
+						 const std::string &new_text)
 {
 	std::string	newLine;
 	std::string tempLine;
