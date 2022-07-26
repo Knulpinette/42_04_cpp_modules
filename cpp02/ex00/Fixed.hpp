@@ -3,6 +3,13 @@
 
 #include <iostream>
 
+/*
+    int and floats are 4 bytes (42 bits), each bytes being 8 bits
+    with fixed point, you're saying you want this number
+    (you shift them of 8 bits everytime) of bytes is for
+    the decimal part
+*/
+
 class Fixed
 {
     public:

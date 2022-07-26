@@ -27,7 +27,6 @@ Fixed::Fixed( const Fixed &pointToCopy )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	fixedPoint = pointToCopy.getRawBits();
-}
 
 Fixed& Fixed::operator = ( const Fixed &pointToCopy )
 {

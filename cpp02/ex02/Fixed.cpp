@@ -4,6 +4,11 @@
 Fixed::Fixed() 
 		: fixedPoint(0) {}
 
+Fixed::Fixed( const Fixed &pointToCopy ) 
+{
+	fixedPoint = pointToCopy.getRawBits();
+}
+
 Fixed::Fixed(const int intPoint)
 {
 	fixedPoint = intPoint << fractionalBits;
@@ -16,11 +21,6 @@ Fixed::Fixed(const float floatPoint)
 	//if (fetestexcept(FE_ALL_EXCEPT))
 	//	std::cout << "a rounding error has occured" << std::endl;
 
-}
-
-Fixed::Fixed( const Fixed &pointToCopy ) 
-{
-	fixedPoint = pointToCopy.getRawBits();
 }
 
 Fixed& Fixed::operator = ( const Fixed &pointToCopy )
@@ -98,14 +98,15 @@ Fixed   Fixed::operator - (const Fixed &otherPoint)
 Fixed   Fixed::operator * (const Fixed &otherPoint)
 {
 	Fixed	newPoint;
-	newPoint.setRawBits(fixedPoint * otherPoint.fixedPoint);
+
+	newPoint.setRawBits(fixedPoint * otherPoint.toFloat()); 
 	return (newPoint);
 }
 
 Fixed   Fixed::operator / (const Fixed &otherPoint)
 {
 	Fixed	newPoint;
-	newPoint.setRawBits(fixedPoint / otherPoint.fixedPoint);
+	newPoint.setRawBits(fixedPoint / otherPoint.toFloat());
 	return (newPoint);
 }
 
@@ -117,9 +118,9 @@ Fixed& Fixed::operator ++ ()
 
 Fixed Fixed::operator ++ (int)
 {
-	Fixed	copyPoint;
+	Fixed	copyPoint(*this);
 
-	copyPoint.fixedPoint++;
+	fixedPoint++;
 	return (copyPoint);
 }   
 
@@ -131,9 +132,9 @@ Fixed& Fixed::operator -- ()
 	
 Fixed Fixed::operator -- (int)
 {
-	Fixed	copyPoint;
+	Fixed	copyPoint(*this);
 
-	copyPoint.fixedPoint--;
+	fixedPoint--;
 	return (copyPoint);
 }  
 
@@ -170,4 +171,3 @@ std::ostream & operator << (std::ostream &out, const Fixed &fixedPoint)
     out << fixedPoint.toFloat();
     return out;
 }
- 

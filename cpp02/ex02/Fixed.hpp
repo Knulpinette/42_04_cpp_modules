@@ -8,9 +8,9 @@ class Fixed
 {
     public:
         Fixed();
+        Fixed( const Fixed &pointToCopy );
         Fixed( const int intPoint );
         Fixed( const float floatPoint );
-        Fixed( const Fixed &pointToCopy );
         Fixed& operator = ( const Fixed &pointToCopy );
         ~Fixed();
 
