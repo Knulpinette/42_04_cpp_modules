@@ -30,23 +30,38 @@ void Karen::warning( void )
 
 void Karen::error( void )
 {
-	std::cout << "[ERROR]\nThis is unacceptable, I want to speak to the manager now." << std::endl;
+	std::cout << "[ERROR]\nThis is unacceptable, I want to speak to the manager now." 
+				<< std::endl;
 }
 
 void Karen::complain( std::string level )
 {
-	std::string levelList[4] = {"DEBUG", "INFO", "WARNING", "ERROR"}; //creating an index of valid commands to compare the input to.
-	void (Karen::*commandsIndex[4])(void) //creating an index of functions to call for directly.
+	std::string levelList[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Karen::*commandsIndex[4])(void)
 		= {
 			&Karen::debug,
 			&Karen::info,
 			&Karen::warning,
-			&Karen::error
+			&Karen::error,
 		};
+	int	index;
 
-	for (int i = 0; i < 4; i++)
+	for (index = 0; index < 4; index++)
 	{
-		if (level.compare(levelList[i]) == 0)
-				(this->*commandsIndex[i])();
+		if (level.compare(levelList[index]) == 0)
+			break;
+	}
+	switch (index)
+	{
+		case 0:
+			(this->*commandsIndex[index++])();
+		case 1:
+			(this->*commandsIndex[index++])();
+		case 2:
+			(this->*commandsIndex[index++])();
+		case 3:
+			(this->*commandsIndex[index++])();
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
