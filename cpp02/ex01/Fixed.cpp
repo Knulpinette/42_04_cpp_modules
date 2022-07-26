@@ -1,5 +1,11 @@
 #include "Fixed.hpp"
-//#include <fenv.h>
+/*#include <fenv.h>
+	to protect roundf(x), we should use the following code, but function is forbidden :
+			feclearexcept(FE_ALL_EXCEPT);
+			line using roundf
+			if (fetestexcept(FE_ALL_EXCEPT))
+				std::cout << "a rounding error has occured" << std::endl;
+*/
 
 Fixed::Fixed() 
 		: fixedPoint(0)
@@ -16,10 +22,7 @@ Fixed::Fixed(const int intPoint)
 Fixed::Fixed(const float floatPoint)
 {
 	std::cout << "Float constructor called" << std::endl;
-	//feclearexcept(FE_ALL_EXCEPT);
 	fixedPoint = (int)roundf(floatPoint * (1 << fractionalBits));
-	//if (fetestexcept(FE_ALL_EXCEPT))
-	//	std::cout << "a rounding error has occured" << std::endl;
 }
 
 Fixed::Fixed( const Fixed &pointToCopy ) 
