@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= fixed_point
+NAME	= more_useful_fixed_point
 
 # -*- Definitions of variables -*-
 
