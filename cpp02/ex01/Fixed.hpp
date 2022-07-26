@@ -2,13 +2,15 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <cmath> // float roundf( float x );
-// The roundf() functions return x rounded to the nearest integer n, 
-// rounding halfway cases away from zero, regardless of the current 
-// rounding direction (i.e., returning the value with larger magnitude 
-// if |n − x| == 1/2).
-// Call feclearexcept(FE_ALL_EXCEPT) before calling round(), roundf(), or roundl().
-// On return, if fetestexcept(FE_ALL_EXCEPT) is nonzero, then an error has occurred.
+#include <cmath> 
+/*      allowed function: float roundf( float x );
+    The roundf() functions return x rounded to the nearest integer n, 
+    rounding halfway cases away from zero, regardless of the current 
+    rounding direction (i.e., returning the value with larger magnitude 
+    if |n − x| == 1/2).
+    Call feclearexcept(FE_ALL_EXCEPT) before calling round(), roundf(), or roundl().
+    On return, if fetestexcept(FE_ALL_EXCEPT) is nonzero, then an error has occurred.
+*/
 
 class Fixed
 {
@@ -31,14 +33,39 @@ class Fixed
 
 };
 
-std::ostream & operator << (std::ostream &out, const Fixed &fixedPoint);
+std::ostream & operator << (std::ostream &out, const Fixed &fixedPoint); // overloading function
 
 /*
-**		Note on const operator
-	const char c1;           //the character cannot be modified
-	const char * c2;         //the character pointed at cannot be modified
-	char * const c3;         //The pointer to the character cannot be modified
-	const char * const c4;   //The pointer AND the character pointed at cannot be modified
+**		Note on overload operator
+	Operators (+, -, <<, etc) are built to work with built-in data-types (int, char etc).
+    But it's possible to make them work with manually-made data-types by overloading them.
+    Redefining the meaning of operators really does not change their original meaning;
+    instead, they have been given additional meaning along with their existing ones.
+
+    We can overload
+
+        Binary Arithmetic     ->     +, -, *, /, %
+        Unary Arithmetic     ->     +, -, ++, —
+        Assignment     ->     =, +=,*=, /=,-=, %=
+        Bit- wise      ->     & , | , << , >> , ~ , ^
+        De-referencing     ->     (->)
+        Dynamic memory allocation and De-allocation     ->     New, delete 
+        Subscript     ->     [ ]
+        Function call     ->     ()
+        Logical      ->     &,  | |, !
+        Relational     ->     >, < , = =, <=, >=
+        
+    Some CANNOT be:
+
+        Scope resolution operator       : :
+        Member selection operator                               
+        Member selection through        * 
+        Pointer to member variable
+
+        Conditional operator           ? :
+        Sizeof operator                sizeof()
+
+        // to know why -> https://www.geeksforgeeks.org/operator-overloading-c/ 
 */
 
 #endif
