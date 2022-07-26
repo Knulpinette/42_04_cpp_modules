@@ -20,13 +20,13 @@ Fixed::Fixed(const float floatPoint)
 	fixedPoint = (int)roundf(floatPoint * (1 << fractionalBits));
 	//if (fetestexcept(FE_ALL_EXCEPT))
 	//	std::cout << "a rounding error has occured" << std::endl;
-
 }
 
 Fixed::Fixed( const Fixed &pointToCopy ) 
 {
 	std::cout << "Copy constructor called" << std::endl;
 	fixedPoint = pointToCopy.getRawBits();
+}
 
 Fixed& Fixed::operator = ( const Fixed &pointToCopy )
 {
