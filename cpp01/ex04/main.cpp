@@ -26,6 +26,7 @@ bool	input_is_correct(int argc, char **argv)
 		return (true);
 }
 
+// & (reference) is like a constant pointer.
 std::string	rewrite_line(const std::string &line,
 						 const std::string &original_string,
 						 const std::string &new_text)
