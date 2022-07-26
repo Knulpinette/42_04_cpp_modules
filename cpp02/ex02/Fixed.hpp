@@ -20,38 +20,31 @@ class Fixed
         int     toInt( void ) const; 
 
         // Comparison operators
-        bool   operator < (Fixed &otherPoint);
-        bool   operator > (Fixed &otherPoint);
-        bool   operator <= (Fixed &otherPoint);
-        bool   operator >= (Fixed &otherPoint);
-        bool   operator == (Fixed &otherPoint);
-        bool   operator != (Fixed &otherPoint);
+        bool   operator < (const Fixed &otherPoint);
+        bool   operator > (const Fixed &otherPoint);
+        bool   operator <= (const Fixed &otherPoint);
+        bool   operator >= (const Fixed &otherPoint);
+        bool   operator == (const Fixed &otherPoint);
+        bool   operator != (const Fixed &otherPoint);
 
         // Arithmetic operators
-        Fixed   operator + (Fixed &otherPoint);
-        Fixed   operator - (Fixed &otherPoint);
-        Fixed   operator * (Fixed &otherPoint);
-        Fixed   operator / (Fixed &otherPoint);
+        Fixed   operator + (const Fixed &otherPoint);
+        Fixed   operator - (const Fixed &otherPoint);
+        Fixed   operator * (const Fixed &otherPoint);
+        Fixed   operator / (const Fixed &otherPoint);
 
-        Fixed& operator++();       // Prefix increment operator.
-        Fixed operator++(int);     // Postfix increment operator.
+        Fixed& operator ++ ();       // Prefix increment operator.
+        Fixed operator ++ (int);     // Postfix increment operator.
 
-        Fixed& operator--();       // Prefix decrement operator.
-        Fixed operator--(int);     // Prefix increment operator.
+        Fixed& operator -- ();       // Prefix decrement operator.
+        Fixed operator -- (int);     // Prefix increment operator.
+
+        static Fixed& min(Fixed &point1, Fixed &point2);
+        static Fixed& max(Fixed &point1, Fixed &point2);
+
+        static const Fixed& min(const Fixed &point1, const Fixed &point2);
+        static const Fixed& max(const Fixed &point1, const Fixed &point2);
         
-/*  Add the following public static member functions overloads to your class:
-
-    • The static member function min that takes references on two fixed point values and
-    returns a reference to the smallest value, and an overload that takes references on
-    two constant fixed point values and returns a reference to the smallest constant
-    value.
-
-    • The static member function max that takes references on two fixed point values
-    and returns a reference to the biggest value, and an overload that takes references
-    on two constant fixed point values and returns a reference to the biggest constant
-    value.
-*/
-
     private:
         int 				fixedPoint;
 		static const int 	fractionalBits = 8;
