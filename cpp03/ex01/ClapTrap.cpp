@@ -9,7 +9,7 @@ ClapTrap::ClapTrap()
 	std::string	humonculus[] = {"Lust", "Greed", "Sloth", "Wrath", "Gluttony", "Pride", "Envy"};
 
 	name = humonculus[rand() % 7 + 1];
-	std::cout << "Default constructor called for " << name << std::endl;
+	std::cout << "Default constructor called for ClapTrap " << name << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string newName )
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap( std::string newName )
 				energypoints(10),
 				attackdamage(0)
 {
-	std::cout << "Name constructor called for " << name << std::endl;
+	std::cout << "Name constructor called for ClapTrap " << name << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap& valueToCopy )
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap( const ClapTrap& valueToCopy )
 			energypoints(valueToCopy.energypoints),
 			attackdamage(valueToCopy.attackdamage)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called for ClapTrap" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator = ( const ClapTrap &valueToCopy )
@@ -41,7 +41,7 @@ ClapTrap& ClapTrap::operator = ( const ClapTrap &valueToCopy )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called for " << name << std::endl;
+	std::cout << "Destructor called for ClapTrap " << name << std::endl;
 }
 
 void 		ClapTrap::attack(std::string const & target)
@@ -51,7 +51,7 @@ void 		ClapTrap::attack(std::string const & target)
 	{
 		if (!energypoints)
 		{
-			std::cout << name
+			std::cout << " Claptrap " << name
 					<< " has already died. Unless they're a zombie...?"
 					<< std::endl;
 		}
@@ -63,7 +63,7 @@ void 		ClapTrap::attack(std::string const & target)
 		}
 		return ;
 	}
-	std::cout << name
+	std::cout << " Claptrap " << name
 				<< " attacks " << target
 				<< ", causing " << attackdamage
 				<< " points of damage!"
@@ -76,14 +76,14 @@ void 		ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "[TAKING DAMAGE]" << std::endl;
 	if (energypoints == 0)
 	{
-		std::cout << name
+		std::cout << " Claptrap " << name
 				<< " has already died. You're going a bit overboad."
 				<< std::endl;
 		return ;
 	}
 	if (energypoints - amount <= 0)
 		amount = energypoints;
-	std::cout << name
+	std::cout << " Claptrap " << name
 				<< " takes " << amount
 				<< " points of damage!"
 				<< std::endl;
@@ -91,7 +91,7 @@ void 		ClapTrap::takeDamage(unsigned int amount)
 	if (energypoints <= 0)
 	{
 		energypoints = 0;
-		std::cout << name
+		std::cout << " Claptrap " << name
 				<< " has died."
 				<< std::endl;
 	}
@@ -105,14 +105,14 @@ void 		ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "[REPAIRING]" << std::endl;
 	if (energypoints == 0 && !amount)
 	{
-		std::cout << name
+		std::cout << " Claptrap " << name
 				<< " is still dead."
 				<< std::endl;
 		return ;
 	}
 	else if (energypoints == 0 && amount)
 	{
-		std::cout << name
+		std::cout << " Claptrap " << name
 				<< " has been ressucitated."
 				<< std::endl;
 	}
@@ -128,7 +128,7 @@ void 		ClapTrap::beRepaired(unsigned int amount)
 		if (amount2 < 0)
 			amount2 = 0;
 	}
-	std::cout << name
+	std::cout << " Claptrap " << name
 				<< " heals " << amount
 				<< " points of damage"
 				<< " and restores " << amount2

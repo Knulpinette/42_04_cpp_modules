@@ -6,7 +6,7 @@
 
 class ClapTrap
 {
-	public:
+	public: // everyone can access everything that's public
 		ClapTrap();
 		ClapTrap( std::string newName );
 		ClapTrap( const ClapTrap& valueToCopy );
@@ -17,11 +17,13 @@ class ClapTrap
 		void 		takeDamage(unsigned int amount);
 		void 		beRepaired(unsigned int amount);
 
-	private:
+	protected: // only a subclass can access what's protected
 		std::string name;
 		int			hitpoints;
 		int			energypoints;
 		int			attackdamage;
+
+	private: // no one but the class can access what's private - even subclasses
 
 };
 
