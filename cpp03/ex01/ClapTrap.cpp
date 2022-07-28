@@ -49,7 +49,7 @@ void 		ClapTrap::attack(std::string const & target)
 	std::cout << "[ATTACKING]" << std::endl;
 	if (!energypoints || !hitpoints)
 	{
-		if (!energypoints)
+		if (!hitpoints)
 		{
 			std::cout << " Claptrap " << name
 					<< " has already died. Unless they're a zombie...?"
@@ -58,7 +58,7 @@ void 		ClapTrap::attack(std::string const & target)
 		else
 		{
 			std::cout << name
-				<< " has no more hitpoints to attack!"
+				<< " has no more energy points to attack!"
 				<< std::endl;
 		}
 		return ;
@@ -74,23 +74,23 @@ void 		ClapTrap::attack(std::string const & target)
 void 		ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "[TAKING DAMAGE]" << std::endl;
-	if (energypoints == 0)
+	if (hitpoints == 0)
 	{
 		std::cout << " Claptrap " << name
 				<< " has already died. You're going a bit overboad."
 				<< std::endl;
 		return ;
 	}
-	if (energypoints - amount <= 0)
-		amount = energypoints;
+	if (hitpoints - amount <= 0)
+		amount = hitpoints;
 	std::cout << " Claptrap " << name
 				<< " takes " << amount
 				<< " points of damage!"
 				<< std::endl;
-	energypoints -= amount;
-	if (energypoints <= 0)
+	hitpoints -= amount;
+	if (hitpoints <= 0)
 	{
-		energypoints = 0;
+		hitpoints = 0;
 		std::cout << " Claptrap " << name
 				<< " has died."
 				<< std::endl;
@@ -103,37 +103,37 @@ void 		ClapTrap::beRepaired(unsigned int amount)
 
 	amount2 = amount;
 	std::cout << "[REPAIRING]" << std::endl;
-	if (energypoints == 0 && !amount)
+	if (hitpoints == 0 && !amount)
 	{
 		std::cout << " Claptrap " << name
 				<< " is still dead."
 				<< std::endl;
 		return ;
 	}
-	else if (energypoints == 0 && amount)
+	else if (hitpoints == 0 && amount)
 	{
 		std::cout << " Claptrap " << name
 				<< " has been ressucitated."
 				<< std::endl;
 	}
-	if (amount + energypoints > 10)
+	if (amount + hitpoints > 10)
 	{
-		amount = 10 - energypoints;
+		amount = 10 - hitpoints;
 		if (amount < 0)
 			amount = 0;
 	}
-	if (amount2 + hitpoints > 10)
+	if (amount2 + energypoints > 10)
 	{
-		amount2 = 10 - hitpoints;
+		amount2 = 10 - energypoints;
 		if (amount2 < 0)
 			amount2 = 0;
 	}
 	std::cout << " Claptrap " << name
-				<< " heals " << amount
+				<< " heals " << amount2
 				<< " points of damage"
-				<< " and restores " << amount2
-				<< " hitpoints!"
+				<< " and restores " << amount
+				<< " energy points!"
 				<< std::endl;
-	energypoints += amount;
 	hitpoints += amount;
+	energypoints += amount;
 }
