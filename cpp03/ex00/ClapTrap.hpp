@@ -6,9 +6,10 @@
 class ClapTrap
 {
 	public:
+		ClapTrap();
 		ClapTrap( std::string newName );
 		ClapTrap( const ClapTrap& valueToCopy );
-        ClapTrap& operator = ( const ClapTrap &value );
+        ClapTrap& operator = ( const ClapTrap &valueToCopy );
 		~ClapTrap();
 
 		void 		attack(std::string const & target);
