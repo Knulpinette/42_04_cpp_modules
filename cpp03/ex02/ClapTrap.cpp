@@ -114,7 +114,7 @@ void 		ClapTrap::beRepaired(unsigned int amount)
 				<< std::endl;
 	}
 	std::cout << " Claptrap " << name
-				<< " heals " << amount2
+				<< " heals " << amount
 				<< " points of damage"
 				<< " and restores " << amount
 				<< " energy points!"
