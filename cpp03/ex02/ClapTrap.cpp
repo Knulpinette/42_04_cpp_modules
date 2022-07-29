@@ -99,9 +99,6 @@ void 		ClapTrap::takeDamage(unsigned int amount)
 
 void 		ClapTrap::beRepaired(unsigned int amount)
 {
-	int	amount2;
-
-	amount2 = amount;
 	std::cout << "[REPAIRING]" << std::endl;
 	if (hitpoints == 0 && !amount)
 	{
