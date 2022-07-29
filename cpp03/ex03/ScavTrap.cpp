@@ -51,30 +51,3 @@ void ScavTrap::guardGate()
 				<< " has entered GateKeeper mode."
 				<< std::endl;
 }
-
-void ScavTrap::attack(std::string const & target)
-{
-	std::cout << "[ATTACKING]" << std::endl;
-	if (!energypoints || !hitpoints)
-	{
-		if (!hitpoints)
-		{
-			std::cout << " Scavtrap " << name
-					<< " has already died. Unless they're a zombie...?"
-					<< std::endl;
-		}
-		else
-		{
-			std::cout << name
-				<< " has no more energy points to attack!"
-				<< std::endl;
-		}
-		return ;
-	}
-	std::cout << " Scavtrap " << name
-				<< " attacks " << target
-				<< ", causing " << attackdamage
-				<< " points of damage!"
-				<< std::endl;
-	hitpoints--;
-}

@@ -1,8 +1,9 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap()
+			: name("philosopherStone")
 {
-	name = "philosophalStone";
+	ClapTrap::name = name + "_clap_name";
 	hitpoints = FragTrap::hitpoints;
 	energypoints = ScavTrap::energypoints;
 	attackdamage = FragTrap::attackdamage;
@@ -10,10 +11,9 @@ DiamondTrap::DiamondTrap()
 }
 
 DiamondTrap::DiamondTrap( std::string newName)
-		: 	FragTrap(newName),
-			ScavTrap(newName)
+		: 	name(newName)
 {
-	name = newName;
+	ClapTrap::name = name + "_clap_name";
 	hitpoints = FragTrap::hitpoints;
 	energypoints = ScavTrap::energypoints;
 	attackdamage = FragTrap::attackdamage;
@@ -21,8 +21,9 @@ DiamondTrap::DiamondTrap( std::string newName)
 }
 
 DiamondTrap::DiamondTrap( const DiamondTrap& valueToCopy)
-		: ClapTrap(valueToCopy.name) // this allows to construct a ClapTrap - else it will only construct the DiamondTrap.
+		: name(valueToCopy.name) 
 {
+	ClapTrap::name = valueToCopy.name + "_clap_name";
 	hitpoints = valueToCopy.hitpoints;
 	energypoints = valueToCopy.energypoints;
 	attackdamage = valueToCopy.attackdamage;
@@ -32,6 +33,7 @@ DiamondTrap::DiamondTrap( const DiamondTrap& valueToCopy)
 DiamondTrap& DiamondTrap::operator = (const DiamondTrap& valueToCopy)
 {
 	name = valueToCopy.name;
+	ClapTrap::name = valueToCopy.name + "_clap_name";
 	hitpoints = valueToCopy.hitpoints;
 	energypoints = valueToCopy.energypoints;
 	attackdamage = valueToCopy.attackdamage;
@@ -48,4 +50,10 @@ DiamondTrap::~DiamondTrap()
 void	DiamondTrap::whoAmI()
 {
 	std::cout << "I am " << DiamondTrap::name << " and ClapTrap " << ClapTrap::name << std::endl;
+}
+
+void DiamondTrap::attack( std::string const &target )
+{
+	std::cout << "[THE SCAVTRAP VERSION] ";
+	this->ScavTrap::attack( target );
 }
