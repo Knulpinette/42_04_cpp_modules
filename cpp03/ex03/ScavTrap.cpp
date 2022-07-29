@@ -2,9 +2,7 @@
 
 ScavTrap::ScavTrap()
 {
-	std::string	humonculus[] = {"Lust", "Greed", "Sloth", "Wrath", "Gluttony", "Pride", "Envy"};
-
-	name = humonculus[rand() % 7 + 1];
+	name = "Humonculus";
 	hitpoints = 100;
 	energypoints = 50;
 	attackdamage = 20;
@@ -52,4 +50,31 @@ void ScavTrap::guardGate()
 	std::cout << "ScavTrap " << name 
 				<< " has entered GateKeeper mode."
 				<< std::endl;
+}
+
+void ScavTrap::attack(std::string const & target)
+{
+	std::cout << "[ATTACKING]" << std::endl;
+	if (!energypoints || !hitpoints)
+	{
+		if (!hitpoints)
+		{
+			std::cout << " Scavtrap " << name
+					<< " has already died. Unless they're a zombie...?"
+					<< std::endl;
+		}
+		else
+		{
+			std::cout << name
+				<< " has no more energy points to attack!"
+				<< std::endl;
+		}
+		return ;
+	}
+	std::cout << " Scavtrap " << name
+				<< " attacks " << target
+				<< ", causing " << attackdamage
+				<< " points of damage!"
+				<< std::endl;
+	hitpoints--;
 }

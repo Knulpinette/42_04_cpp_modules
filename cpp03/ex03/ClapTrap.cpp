@@ -99,37 +99,22 @@ void 		ClapTrap::takeDamage(unsigned int amount)
 
 void 		ClapTrap::beRepaired(unsigned int amount)
 {
-	int	amount2;
-
-	amount2 = amount;
 	std::cout << "[REPAIRING]" << std::endl;
-	if (hitpoints == 0 && !amount)
+	if (!hitpoints && !amount)
 	{
 		std::cout << " Claptrap " << name
 				<< " is still dead."
 				<< std::endl;
 		return ;
 	}
-	else if (hitpoints == 0 && amount)
+	else if (!hitpoints && amount)
 	{
 		std::cout << " Claptrap " << name
 				<< " has been ressucitated."
 				<< std::endl;
 	}
-	if (amount + hitpoints > 10)
-	{
-		amount = 10 - hitpoints;
-		if (amount < 0)
-			amount = 0;
-	}
-	if (amount2 + energypoints > 10)
-	{
-		amount2 = 10 - energypoints;
-		if (amount2 < 0)
-			amount2 = 0;
-	}
 	std::cout << " Claptrap " << name
-				<< " heals " << amount2
+				<< " heals " << amount
 				<< " points of damage"
 				<< " and restores " << amount
 				<< " energy points!"

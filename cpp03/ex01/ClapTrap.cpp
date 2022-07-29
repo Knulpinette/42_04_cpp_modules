@@ -116,18 +116,6 @@ void 		ClapTrap::beRepaired(unsigned int amount)
 				<< " has been ressucitated."
 				<< std::endl;
 	}
-	if (amount + hitpoints > 10)
-	{
-		amount = 10 - hitpoints;
-		if (amount < 0)
-			amount = 0;
-	}
-	if (amount2 + energypoints > 10)
-	{
-		amount2 = 10 - energypoints;
-		if (amount2 < 0)
-			amount2 = 0;
-	}
 	std::cout << " Claptrap " << name
 				<< " heals " << amount2
 				<< " points of damage"

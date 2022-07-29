@@ -1,8 +1,8 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	ScavTrap	humonculus;
+	/*ScavTrap	humonculus;
 	ScavTrap	mustang("Mustang");
 	ScavTrap	edward("Edward");
 	FragTrap	alphonse("Alphonse");
@@ -34,5 +34,18 @@ int main()
 
 	alphonse.attack("Humonculus");
 	humonculus.takeDamage(100);
-	alphonse.highFivesGuys();
+	alphonse.highFivesGuys();*/
+
+	DiamondTrap	hawkeye("Hawkeye");
+	ScavTrap	humonculus;
+
+	humonculus.attack("Hawkeye");
+	hawkeye.takeDamage(20);
+	hawkeye.attack("Humonculus");
+	hawkeye.beRepaired(20);
+	hawkeye.guardGate();
+	hawkeye.highFivesGuys();
+	hawkeye.whoAmI();
+
+
 }

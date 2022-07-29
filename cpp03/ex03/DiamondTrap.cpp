@@ -2,19 +2,21 @@
 
 DiamondTrap::DiamondTrap()
 {
-	name = ClapTrap::name;
-	hitpoints = FragTap::hitpoints;
-	energypoints = ScavTap::energypoints;
-	attackdamage = FragTap::attackdamage;
+	name = "philosophalStone";
+	hitpoints = FragTrap::hitpoints;
+	energypoints = ScavTrap::energypoints;
+	attackdamage = FragTrap::attackdamage;
 	std::cout << "Default constructor called for DiamondTrap " << name << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name)
-		: name + ClapTrap(name)
+DiamondTrap::DiamondTrap( std::string newName)
+		: 	FragTrap(newName),
+			ScavTrap(newName)
 {
-	hitpoints = FragTap::hitpoints;
-	energypoints = ScavTap::energypoints;
-	attackdamage = FragTap::attackdamage;
+	name = newName;
+	hitpoints = FragTrap::hitpoints;
+	energypoints = ScavTrap::energypoints;
+	attackdamage = FragTrap::attackdamage;
 	std::cout << "Name constructor called for DiamondTrap " << name << std::endl;
 }
 
@@ -45,5 +47,5 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "I am DiamondClap " << name << " and ClapTrap " << name << std::endl;
+	std::cout << "I am " << DiamondTrap::name << " and ClapTrap " << ClapTrap::name << std::endl;
 }

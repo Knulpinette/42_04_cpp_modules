@@ -2,9 +2,7 @@
 
 FragTrap::FragTrap()
 {
-	std::string	humonculus[] = {"Lust", "Greed", "Sloth", "Wrath", "Gluttony", "Pride", "Envy"};
-
-	name = humonculus[rand() % 7 + 1];
+	name = "SevenSins";
 	hitpoints = 100;
 	energypoints = 100;
 	attackdamage = 30;
