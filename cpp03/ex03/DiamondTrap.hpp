@@ -12,7 +12,7 @@ class DiamondTrap: public FragTrap, public ScavTrap
 		DiamondTrap & operator = (const DiamondTrap &valueToCopy );
 		~DiamondTrap();
 
-		friend void ScavTrap::attack(std::string const & target);
+		void 	ScavTrap::attack(std::string const & target);
 		void	whoAmI();
 
 	private:
