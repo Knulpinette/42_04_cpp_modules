@@ -1,4 +1,5 @@
 #include "Phonebook.hpp"
+#include <limits>
 
 Phonebook::Phonebook(void){}
 Phonebook::~Phonebook(void){}
@@ -19,6 +20,17 @@ void	Phonebook::addContact(void)
 /*
 	std::cin.fail() checks if the standard input is a number.
 	std::cin.clear() clears the input.
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			// This line ignores the rest of the current line, up to '\n' 
+			or EOF - whichever comes first:
+				- '\n' sets the delimiter, i.e. the character after which
+					cin stops ignoring
+   				- numeric_limits<streamsize>::max() sets the maximum number 
+					of characters to ignore. Since this is the upper limit 
+					on the size of a stream, you are effectively telling cin 
+					that there is no limit to the number of characters to ignore.
+
+
 */
 
 void	Phonebook::searchContact(void)
@@ -35,10 +47,11 @@ void	Phonebook::searchContact(void)
 	std::cout << "Enter the contact ID you want to show : ";
 	long	contactID;
 	std::cin >> contactID;
+	std::cout << "Contact ID : " << contactID << std::endl;
 	if (std::cin.fail() || contactID <= 0 || contactID >= nbContacts + 1)
 	{
-		if (std::cin.fail())
-			std::cin.clear();
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << std::endl
 					<< "	🤷 This ID does not exist!"
 					<< std::endl

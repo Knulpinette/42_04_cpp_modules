@@ -19,7 +19,7 @@ NAME	= awesome_phonebook
 SRCS_DIR		= ./
 SRCS			:= Contact.cpp Phonebook.cpp main.cpp
 
-CC			= clang++
+CC			= c++
 RM			= rm -f
 MAKE		= make
 CFLAGS 		= -Wall -Wextra -Werror

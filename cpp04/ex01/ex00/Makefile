@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= of_brains_and_pointers
+NAME	= brain
 
 # -*- Definitions of variables -*-
 
@@ -30,6 +30,23 @@ CC			= c++
 RM			= rm -f
 MAKE		= make
 CFLAGS 		= -std=c++98 -Wall -Wextra -Werror
+
+### Shadowing
+# Each block defines its own scope region. So what happens when we have a variable inside a 
+# nested block that has the same name as a variable in an outer block? When this happens, 
+# the nested variable “hides” the outer variable in areas where they are both in scope. This 
+# is called name hiding or shadowing.
+
+### Flags
+## Wshadow
+# Warn whenever a local variable or type declaration shadows another variable, 
+# parameter, type, class member (in C++), or instance variable (in Objective-C) 
+# or whenever a built-in function is shadowed. Note that in C++, the compiler warns if 
+# a local variable shadows an explicit typedef, but not if it shadows a struct/class/enum. 
+# If this warning is enabled, it includes also all instances of local shadowing. This means 
+# that -Wno-shadow=local and -Wno-shadow=compatible-local are ignored when -Wshadow is used.
+## Wno-shadow
+# Do not warn whenever a local variable shadows an instance variable in an Objective-C method. 
 
 # Colors
 
@@ -83,5 +100,4 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
-
 

@@ -68,6 +68,7 @@ int main(void)
 		else
 			std::cout << "You can only ADD, SEARCH or EXIT." << std::endl;
 		input.clear(); /* erases the contents of the string */
+		//std::cin.clear();
 	}
 	std::cout << std::endl;
 	return (0);

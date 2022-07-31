@@ -26,7 +26,7 @@ OBJS			:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 ĨNCLUDES	= -I $(HEADERS)
 
-CC			= clang++
+CC			= c++
 RM			= rm -f
 MAKE		= make
 CFLAGS 		= -std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow

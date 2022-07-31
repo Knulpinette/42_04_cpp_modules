@@ -26,7 +26,7 @@ HEADERS			=	$(shell find *.hpp)
 
 ĨNCLUDES	= -I $(HEADERS)
 
-CC			= clang++
+CC			= c++
 RM			= rm -f
 MAKE		= make
 CFLAGS 		= -std=c++98 -Wall -Wextra -Werror
