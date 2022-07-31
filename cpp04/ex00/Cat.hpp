@@ -7,7 +7,6 @@ class Cat: public Animal
 {
 	public: // everyone can access everything that's public
 		Cat();
-		Cat( std::string newName );
 		Cat( const Cat& valueToCopy );
         Cat& operator = ( const Cat &valueToCopy );
 		~Cat();

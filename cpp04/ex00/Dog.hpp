@@ -7,7 +7,6 @@ class Dog: public Animal
 {
 	public: // everyone can access everything that's public
 		Dog();
-		Dog( std::string newName );
 		Dog( const Dog& valueToCopy );
         Dog& operator = ( const Dog &valueToCopy );
 		~Dog();

@@ -7,7 +7,6 @@ class Animal
 {
 	public: // everyone can access everything that's public
 		Animal();
-		Animal( std::string newName );
 		Animal( const Animal& valueToCopy );
         Animal& operator = ( const Animal &valueToCopy );
 		virtual ~Animal();
