@@ -14,7 +14,7 @@ class HumanB
         ~HumanB();
 
         void    setWeapon( Weapon &weapon );
-        void	attack();
+        void	attack() const;
 };
 
 #endif

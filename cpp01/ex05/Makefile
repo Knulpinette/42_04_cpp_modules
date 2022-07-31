@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= karen2.0
+NAME	= harl2.0
 
 # -*- Definitions of variables -*-
 

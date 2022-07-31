@@ -7,7 +7,7 @@ HumanA::HumanA( std::string newName, Weapon &newWeapon)
 
 HumanA::~HumanA(){}
 
-void    HumanA::attack()
+void    HumanA::attack() const
 {
     std::cout << name
                 << "  attacks with his "

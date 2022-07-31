@@ -1,14 +1,14 @@
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
 #include <iostream>
 #include <iomanip>
 
-class Karen
+class Harl
 {
 public:
-    Karen();
-    ~Karen();
+    Harl();
+    ~Harl();
 	void complain( std::string level );
 
 private:

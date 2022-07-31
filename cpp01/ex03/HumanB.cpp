@@ -11,7 +11,7 @@ void    HumanB::setWeapon ( Weapon &newWeapon )
     weapon = &newWeapon;
 }
 
-void    HumanB::attack()
+void    HumanB::attack() const
 {
     std::cout << name
                 << " attacks with his ";

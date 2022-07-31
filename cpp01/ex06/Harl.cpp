@@ -1,9 +1,9 @@
-#include "Karen.hpp"
+#include "Harl.hpp"
 
-Karen::Karen() {}
-Karen::~Karen() {}
+Harl::Harl() {}
+Harl::~Harl() {}
 
-void Karen::debug( void )
+void Harl::debug( void )
 {
 	std::cout << "[DEBUG]" << std::endl 
 				<< "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger." << std::endl 
@@ -11,7 +11,7 @@ void Karen::debug( void )
 				<< std::endl;
 }
 
-void Karen::info( void ) 
+void Harl::info( void ) 
 {
 	std::cout << "[INFO]" << std::endl 
 				<< "I cannot believe adding extra bacon cost more money." << std::endl 
@@ -20,7 +20,7 @@ void Karen::info( void )
 				<< std::endl;
 }
 
-void Karen::warning( void )
+void Harl::warning( void )
 {
 	std::cout << "[WARNING]" << std::endl 
 				<< "I think I deserve to have some extra bacon for free." << std::endl 
@@ -28,21 +28,21 @@ void Karen::warning( void )
 				<< std::endl;
 }
 
-void Karen::error( void )
+void Harl::error( void )
 {
 	std::cout << "[ERROR]\nThis is unacceptable, I want to speak to the manager now." 
 				<< std::endl;
 }
 
-void Karen::complain( std::string level )
+void Harl::complain( std::string level )
 {
 	std::string levelList[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Karen::*commandsIndex[4])(void)
+	void (Harl::*commandsIndex[4])(void)
 		= {
-			&Karen::debug,
-			&Karen::info,
-			&Karen::warning,
-			&Karen::error,
+			&Harl::debug,
+			&Harl::info,
+			&Harl::warning,
+			&Harl::error,
 		};
 	int	index;
 
@@ -61,6 +61,7 @@ void Karen::complain( std::string level )
 			(this->*commandsIndex[index++])();
 		case 3:
 			(this->*commandsIndex[index++])();
+			break;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
