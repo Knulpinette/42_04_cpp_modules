@@ -14,7 +14,7 @@ Fixed::Fixed( const Fixed &nbToCopy )
 
 Fixed& Fixed::operator = ( const Fixed &nbToCopy )
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignement operator called" << std::endl;
 	fixedPoint = nbToCopy.getRawBits();
 	return (*this);
 }

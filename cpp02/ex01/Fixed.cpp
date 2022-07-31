@@ -33,7 +33,7 @@ Fixed::Fixed( const Fixed &pointToCopy )
 
 Fixed& Fixed::operator = ( const Fixed &pointToCopy )
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignement operator called" << std::endl;
 	fixedPoint = pointToCopy.getRawBits();
 	return (*this);
 }
@@ -45,25 +45,25 @@ Fixed::~Fixed()
 
 int	Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return (fixedPoint);
 }
 
 void Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	//std::cout << "setRawBits member function called" << std::endl;
 	fixedPoint = raw;
 }
 
 float	Fixed::toFloat( void ) const
 {
-	std::cout << "toFloat member function called" << std::endl;
+	//std::cout << "toFloat member function called" << std::endl;
 	return (float)fixedPoint / (1 << fractionalBits);
 }
 
 int     Fixed::toInt( void ) const
 {
-	std::cout << "toInt member function called" << std::endl;
+	//std::cout << "toInt member function called" << std::endl;
 	return (fixedPoint >> fractionalBits);
 }
 

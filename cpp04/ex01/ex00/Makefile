@@ -77,7 +77,7 @@ ${NAME}:	$(HEADERS) ${OBJS}
 			@printf "	${WHITE}[${GREEN} Success.${WHITE}]\
 			${END} \n\n"
 
-bonus:		${NAME} 
+bonus:		${NAME}
 
 #	Active rules
 
