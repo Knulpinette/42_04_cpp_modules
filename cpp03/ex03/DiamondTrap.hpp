@@ -2,6 +2,8 @@
 #define DIAMONDTRAP_HPP
 
 #include "FragTrap.hpp"
+#include <iostream>
+#include <stdlib.h>
 
 class DiamondTrap: public FragTrap, public ScavTrap
 {

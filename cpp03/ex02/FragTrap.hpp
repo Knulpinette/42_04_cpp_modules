@@ -2,6 +2,8 @@
 # define FRAGTRAP_HPP
 
 #include "ScavTrap.hpp"
+#include <iostream>
+#include <stdlib.h>
 
 class FragTrap: public ClapTrap
 {
