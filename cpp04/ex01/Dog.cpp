@@ -41,7 +41,7 @@ void	Dog::thinks( void ) const
 	std::cout << brain->getIdeas()[80] << std::endl;
 }
 
- /*	
+/*	
  	##Shallow Copy 	
 1.	When we create a copy of object by copying data of all member 
 	variables as it is, then it is called shallow copy 	

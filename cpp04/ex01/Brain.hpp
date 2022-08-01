@@ -13,7 +13,7 @@ class Brain
 
 		std::string	*getIdeas( void );
 
-	protected: 
+	private: 
 		std::string ideas[100];
 };
 

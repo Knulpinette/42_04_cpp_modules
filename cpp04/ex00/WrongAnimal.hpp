@@ -9,7 +9,7 @@ class WrongAnimal
 		WrongAnimal();
 		WrongAnimal( const WrongAnimal& valueToCopy );
         WrongAnimal& operator = ( const WrongAnimal &valueToCopy );
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 
 		std::string	getType() const;
 		void    makeSound() const;
