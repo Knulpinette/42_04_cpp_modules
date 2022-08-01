@@ -24,6 +24,7 @@ Dog& Dog::operator = ( const Dog &valueToCopy ) //
 {
 	type = valueToCopy.type;
 	*brain = *valueToCopy.brain;
+	std::cout << "Copy assignement constructor called for Dog" << std::endl;
 	return (*this);
 }
 
@@ -36,4 +37,12 @@ Dog::~Dog()
 void	Dog::makeSound( void ) const
 {
 	std::cout << "[DOG MAKES SOUND] WOOF!" << std::endl;
+}
+
+void	Dog::thinks( void ) const
+{
+	std::cout << brain->getIdeas()[35] << std::endl;
+	std::cout << brain->getIdeas()[45] << std::endl;
+	std::cout << brain->getIdeas()[72] << std::endl;
+	std::cout << brain->getIdeas()[80] << std::endl;
 }

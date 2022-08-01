@@ -18,6 +18,7 @@ Cat& Cat::operator = ( const Cat &valueToCopy )
 {
 	type = valueToCopy.type;
 	*brain = *valueToCopy.brain;
+	std::cout << "Copy assignement constructor called for Cat" << std::endl;
 	return (*this);
 }
 
@@ -30,4 +31,12 @@ Cat::~Cat()
 void	Cat::makeSound( void ) const
 {
 	std::cout << "[CAT MAKES SOUND] MEAOOW!" << std::endl;
+}
+
+void	Cat::thinks( void ) const
+{
+	std::cout << brain->getIdeas()[33] << std::endl;
+	std::cout << brain->getIdeas()[40] << std::endl;
+	std::cout << brain->getIdeas()[52] << std::endl;
+	std::cout << brain->getIdeas()[99] << std::endl;
 }

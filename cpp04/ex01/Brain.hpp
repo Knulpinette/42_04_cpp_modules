@@ -11,6 +11,8 @@ class Brain
         Brain& operator = ( const Brain &valueToCopy );
 		~Brain();
 
+		std::string	*getIdeas( void );
+
 	protected: 
 		std::string ideas[100];
 };

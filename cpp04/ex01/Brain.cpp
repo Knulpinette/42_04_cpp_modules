@@ -2,6 +2,12 @@
 
 Brain::Brain()
 {
+	for (int i = 0; i < 100; i++)
+	{
+		std::string index;
+		index = i;
+		ideas[i] = "Idea " + index;
+	}
 	std::cout << "Default constructor called for Brain" << std::endl;
 }
 
@@ -23,4 +29,9 @@ Brain& Brain::operator = ( const Brain &valueToCopy )
 Brain::~Brain()
 {
 	std::cout << "Destructor called for Brain" << std::endl;
+}
+
+std::string *Brain::getIdeas( void ) 
+{
+	return (this->ideas);
 }
