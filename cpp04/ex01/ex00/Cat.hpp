@@ -2,6 +2,7 @@
 # define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 #include <iostream>
 
 class Cat: public Animal
@@ -14,10 +15,8 @@ class Cat: public Animal
 
 		void    makeSound() const;
 
-	protected: // only a subclass can access what's protected
-
-
-	private: // no one but the class can access what's private - even subclasses
+	private: 
+		Brain* 	brain;
 
 };
 

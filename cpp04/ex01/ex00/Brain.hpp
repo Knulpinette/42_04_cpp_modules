@@ -11,11 +11,8 @@ class Brain
         Brain& operator = ( const Brain &valueToCopy );
 		~Brain();
 
-		std::string	getType() const;
-		void    makeSound() const;
-
 	protected: 
-		std::string type;
+		std::string ideas[100];
 };
 
 #endif

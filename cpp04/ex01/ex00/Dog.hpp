@@ -2,11 +2,12 @@
 # define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 #include <iostream>
 
 class Dog: public Animal
 {
-	public: // everyone can access everything that's public
+	public: 
 		Dog();
 		Dog( const Dog& valueToCopy );
         Dog& operator = ( const Dog &valueToCopy );
@@ -14,11 +15,8 @@ class Dog: public Animal
 
 		void    makeSound() const;
 
-	protected: // only a subclass can access what's protected
-
-
-	private: // no one but the class can access what's private - even subclasses
-
+	private: 
+		Brain* 	brain;
 };
 
 #endif
