@@ -34,6 +34,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &valueToCopy)
 
 Bureaucrat& Bureaucrat::operator = (const Bureaucrat &valueToCopy)
 {
+	name = valueToCopy.name; // so everything compiles perfectly without this line
+							// but I don't understand what's going on under the hood
+							// that we can just skip it and everything goes well haha.
 	grade = valueToCopy.grade;
     return (*this);
 }
