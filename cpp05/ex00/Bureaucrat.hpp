@@ -7,40 +7,49 @@
 class   Bureaucrat
 {
     private:
-		Bureaucrat();
-
-        const std::string name;
+		std::string const name;
         int               grade;
 
 
     public:
-		Bureaucrat::Bureaucrat(const std::string newName, int newGrade);
+		// Canonical form
+		Bureaucrat();
+		Bureaucrat(const std::string newName);
+		Bureaucrat(const std::string newName, int newGrade);
         Bureaucrat(const Bureaucrat &valueToCopy);
         Bureaucrat& operator = (const Bureaucrat &valueToCopy);
         ~Bureaucrat();
 
-		int 		getGrade();
-		std::string getName();
+		// Accessors
+		std::string getName() const;
+		int			getGrade() const;
 
-		class GradeTooHighException : public exception {
-			const char * what () const throw () {
-				return "Grade is too high"; }
+		// Incrementation methods
+		void		incrementGrade();
+		void		decrementGrade();
+
+		// Nested classes to handle exceptions
+		class GradeTooHighException : public std::exception { 
+			const char * what () const throw ();
 		};
 
-		class GradeTooLowException : public exception {
-			const char * what () const throw () {
-				return "Grade is too low"; }
+		class GradeTooLowException : public std::exception { 
+			const char * what () const throw ();
 		};
 };
 
+std::ostream & operator << (std::ostream &out, const Bureaucrat &bureaucrat); // overloading function
+
+#endif
+
 /* 
-	## Note on Nested Classes
+	## Notes on Nested Classes
 	A nested class is a class that is declared in another class. The nested 
 	class is also a member variable of the enclosing class and has the same 
 	access rights as the other members. However, the member functions of the 
 	enclosing class have no special access to the members of a nested class.
 
-	## Note on Exceptions
+	## Notes on Exceptions
 		https://cplusplus.com/reference/exception/exception/ 
 
 	Exceptions allow the code to read better and to have a different syntax to
@@ -57,7 +66,17 @@ class   Bureaucrat
 
 	/!\ if an exception is not caught, problems will arise. To handle that case,
 		it might be good to devise your own default exception handling. 
-		
-	/*
 
-#endif
+	## Notes on const keyword
+
+	- The const variable cannot be left un-initialized at the time of the assignment.
+    - It cannot be assigned value anywhere in the program.
+    - Explicit value needed to be provided to the constant variable at the time of 
+	  declaration of the constant variable.
+
+	1. const int variable;
+	2. int const variable;
+	3. void method() const;
+	4. const void method();
+		
+	*/
