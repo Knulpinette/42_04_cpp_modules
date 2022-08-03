@@ -4,14 +4,14 @@ Bureaucrat::Bureaucrat()
 	: name("Unknown"),
 		grade(150)
 {
-    std::cout << "Default constructor called for Bureaucrat" << std::endl;
+    //std::cout << "Default constructor called for Bureaucrat" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string newName)
 			: name(newName), 
 				grade(150)
 {
-    std::cout << "Initialisation constructor called for Bureaucrat" << std::endl;
+    //std::cout << "Initialisation constructor called for Bureaucrat" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string newName, int newGrade)
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(const std::string newName, int newGrade)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		grade = newGrade;
-    std::cout << "Initialisation constructor called for Bureaucrat" << std::endl;
+    //std::cout << "Initialisation constructor called for Bureaucrat" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &valueToCopy)
@@ -55,7 +55,7 @@ Bureaucrat& Bureaucrat::operator = (const Bureaucrat &valueToCopy)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Destructor called for Bureaucrat" << std::endl;
+    //std::cout << "Destructor called for Bureaucrat" << std::endl;
 }
 
 std::string Bureaucrat::getName() const 
@@ -84,7 +84,7 @@ void	Bureaucrat::decrementGrade()
 		grade--;
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(Form &form) const
 {
 	try {
 			form.beSigned(*this);

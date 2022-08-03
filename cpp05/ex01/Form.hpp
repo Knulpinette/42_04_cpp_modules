@@ -5,6 +5,10 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+// you have to declare the class like this to let the code compile 
+// (else it can't find the class)
+
 class   Form
 {
     private:
@@ -18,6 +22,7 @@ class   Form
 		// Canonical form
 		Form();
 		Form(const std::string newName);
+		Form(const std::string newName, const int graderequired, const int gradetoexecute);
 		Form(const std::string newName, bool isSigned, const int graderequired, const int gradetoexecute);
         Form(const Form &valueToCopy);
         Form& operator = (const Form &valueToCopy);

@@ -5,6 +5,10 @@
 #include <exception>
 #include "Form.hpp"
 
+class Form; 
+// you have to declare the class like this to let the code compile 
+// (else it can't find the class)
+
 class   Bureaucrat
 {
     private:
@@ -30,7 +34,7 @@ class   Bureaucrat
 		void		decrementGrade();
 
 		// Signing Method
-		void		signForm(Form &form);
+		void		signForm(Form &form) const;
 
 		// Nested classes to handle grade exceptions
 		class GradeTooHighException : public std::exception { 

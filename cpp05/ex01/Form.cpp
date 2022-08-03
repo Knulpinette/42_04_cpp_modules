@@ -7,7 +7,7 @@ Form::Form()
         executeGrade(75)
 
 {
-    std::cout << "Default constructor called for Form" << std::endl;
+    //std::cout << "Default constructor called for Form" << std::endl;
 }
 
 Form::Form(const std::string newName)
@@ -16,23 +16,35 @@ Form::Form(const std::string newName)
 		        requiredGrade(1),
                 executeGrade(75)
 {
-    std::cout << "Initialisation constructor called for Form" << std::endl;
+    //std::cout << "Name constructor called for Form" << std::endl;
+}
+
+Form::Form(const std::string newName, const int graderequired, const int gradetoexecute)
+			: name(newName),
+                signature(false),
+                requiredGrade(graderequired),
+                executeGrade(gradetoexecute)
+
+{
+	if (requiredGrade < 1 || executeGrade < 1)
+		throw Form::GradeTooHighException();
+	else if (requiredGrade > 150 || executeGrade > 150)
+		throw Form::GradeTooLowException();
+    //std::cout << "Name and grades constructor called for Form" << std::endl;
 }
 
 Form::Form(const std::string newName, bool isSigned, const int graderequired, const int gradetoexecute)
 			: name(newName),
-                signature(isSigned)
+                signature(isSigned),
+                requiredGrade(graderequired),
+                executeGrade(gradetoexecute)
+
 {
-	if (graderequired < 1 || gradetoexecute < 1)
+	if (requiredGrade < 1 || executeGrade < 1)
 		throw Form::GradeTooHighException();
-	else if (graderequired > 150 || gradetoexecute > 150)
+	else if (requiredGrade > 150 || executeGrade > 150)
 		throw Form::GradeTooLowException();
-	else
-    {
-        requiredGrade = graderequired;
-		executeGrade = gradetoexecute;
-    }
-    std::cout << "Initialisation constructor called for Form" << std::endl;
+    //std::cout << "All infos constructor called for Form" << std::endl;
 }
 
 Form::Form(const Form &valueToCopy)
@@ -53,7 +65,7 @@ Form& Form::operator = (const Form &valueToCopy)
 
 Form::~Form()
 {
-    std::cout << "Destructor called for Form" << std::endl;
+    //std::cout << "Destructor called for Form" << std::endl;
 }
 
 std::string Form::getName() const 
@@ -104,14 +116,13 @@ const char * Form::AlreadySignedException::what () const throw ()
 
 std::ostream & operator << (std::ostream &out, const Form &Form)
 {
-	out << "Form " << Form.getName()
+	out << "[Form] " << Form.getName()
 			<< " is ";
     if (Form.getSignature() == true)
         out << "signed." << std::endl;
     else
-        out << "not signed." << std::endl;
-    out << "Grade required to sign: " << Form.getRequiredGrade()
-        << std::endl;
-        << "Grade to execute form: " << Form.getExecuteGrade();
+        out << "NOT signed." << std::endl;
+    out << "#Grade required to sign: " << Form.getRequiredGrade() << std::endl
+        << "#Grade to execute form: " << Form.getExecuteGrade();
 	return (out);
 }
