@@ -32,11 +32,23 @@ Bureaucrat::Bureaucrat(const Bureaucrat &valueToCopy)
 	grade = valueToCopy.grade;
 }
 
+/* 
+	## Note on const variable in operator =
+
+	Since name is constant, if you do 
+
+		b1.name = Michele, b1.grade = 10
+		b2.name = Ophelie, b2.grade = 40
+	
+	>> b1 = b2 will have the following result
+
+		b1.name = Michele, b1.grade = 40
+
+	The name CANNOT be changed.
+*/
+
 Bureaucrat& Bureaucrat::operator = (const Bureaucrat &valueToCopy)
 {
-	name = valueToCopy.name; // so everything compiles perfectly without this line
-							// but I don't understand what's going on under the hood
-							// that we can just skip it and everything goes well haha.
 	grade = valueToCopy.grade;
     return (*this);
 }
