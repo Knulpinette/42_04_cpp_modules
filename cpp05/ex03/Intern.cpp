@@ -15,6 +15,7 @@ Intern & Intern::operator = (const Intern &valueToCopy )
 
 Intern::~Intern() {}
 
+/*      /!\ a thrown exception must always be caught!    */
 Form*  Intern::makeForm(const std::string formName, const std::string target)
 {
 	std::string	formsAvailable[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
