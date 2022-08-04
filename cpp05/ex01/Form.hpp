@@ -23,7 +23,6 @@ class   Form
 		Form();
 		Form(const std::string newName);
 		Form(const std::string newName, const int graderequired, const int gradetoexecute);
-		Form(const std::string newName, bool isSigned, const int graderequired, const int gradetoexecute);
         Form(const Form &valueToCopy);
         Form& operator = (const Form &valueToCopy);
         ~Form();

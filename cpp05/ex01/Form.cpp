@@ -33,20 +33,6 @@ Form::Form(const std::string newName, const int graderequired, const int gradeto
     //std::cout << "Name and grades constructor called for Form" << std::endl;
 }
 
-Form::Form(const std::string newName, bool isSigned, const int graderequired, const int gradetoexecute)
-			: name(newName),
-                signature(isSigned),
-                requiredGrade(graderequired),
-                executeGrade(gradetoexecute)
-
-{
-	if (requiredGrade < 1 || executeGrade < 1)
-		throw Form::GradeTooHighException();
-	else if (requiredGrade > 150 || executeGrade > 150)
-		throw Form::GradeTooLowException();
-    //std::cout << "All infos constructor called for Form" << std::endl;
-}
-
 Form::Form(const Form &valueToCopy)
 		: name(valueToCopy.name),
                 signature(valueToCopy.signature),
