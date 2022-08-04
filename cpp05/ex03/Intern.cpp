@@ -31,18 +31,23 @@ Form*  Intern::makeForm(const std::string formName, const std::string target)
 		if (formName.compare(formsAvailable[index]) == 0)
 			break;
 	}
-	switch (index)
+	try 
 	{
-		case 0:
-			return (this->*formGenerated[index])(target);
-		case 1:
-			return (this->*formGenerated[index])(target);
-		case 2:
-			return (this->*formGenerated[index])(target);
-		default:
-			throw Intern::FormNameDoesNotExist();
+		switch (index)
+		{
+			case 0:
+				return (this->*formGenerated[index])(target);
+			case 1:
+				return (this->*formGenerated[index])(target);
+			case 2:
+				return (this->*formGenerated[index])(target);
+			default:
+				throw Intern::FormNameDoesNotExist(); 
+		}
+	} catch (std::exception& e) {
+		std::cerr << e.what() << std::endl;
+		return (0);
 	}
-	
 }
 
 Form* 	Intern::generateShrubberyCreation(const std::string &target)
