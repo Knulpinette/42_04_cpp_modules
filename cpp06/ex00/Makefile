@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= scalar
+NAME	= literals
 
 # -*- Definitions of variables -*-
 
