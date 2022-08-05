@@ -98,6 +98,7 @@ Conversions::~Conversions()
 
 bool	Conversions::isChar( const std::string &literal)
 {
+	// First, parse the info
     (void)literal;
 }
         
@@ -131,6 +132,7 @@ std::string	Conversions::convertToString( int integer )
         
 void	Conversions::convertToChar( const std::string &literal)
 {
+	// then convert it
     (void)literal;
 }
         
@@ -151,5 +153,6 @@ void	Conversions::convertToDouble( const std::string &literal)
 
 void    Conversions::printConversions( void ) const
 {
+	// then print it.
 
 }
