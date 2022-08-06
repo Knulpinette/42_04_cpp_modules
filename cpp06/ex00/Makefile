@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= literals
+NAME	= conversions
 
 # -*- Definitions of variables -*-
 

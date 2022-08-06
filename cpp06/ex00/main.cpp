@@ -9,7 +9,15 @@ int main(int argc, char **argv)
     }
 
     Conversions    conversions = Conversions(argv[1]);
+  /*  Conversions    exampleConversions = Conversions("g");
+    Conversions    copyConversion = Conversions(conversions);
+    
+	copyConversion.printConversions();
+    copyConversion = exampleConversions;
+	copyConversion.printConversions(); */
 
-    std::cout << conversions << std::endl;
+	conversions.printConversions();
+
+
     return (0);
 }
