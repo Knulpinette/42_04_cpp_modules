@@ -78,9 +78,9 @@ class Conversions
 
 		// Limits checks for conversions
 		t_status	setCharStatus ( const char &c ); // to check if it's displayable
-		float		setFloat ( const std::string &literal );
-		double		setDouble ( const std::string &literal );
 		std::string	convertToString( int i ); 		// to check int_MAX and int_MIN limit
+		float		setFloat(const std::string &literal); // to check limits float
+		double		setDouble(const std::string &literal); // to check limits double
 
 		// Conversion functions
 		void		convertToChar( const std::string &literal);

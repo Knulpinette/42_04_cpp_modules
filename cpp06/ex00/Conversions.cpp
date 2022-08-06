@@ -60,8 +60,6 @@ Conversions::Conversions() {} // this constructor is private.
         
 Conversions::Conversions( const std::string literal )
 {
-	std::cout << "String constructor called for Conversions" << std::endl;
-
 	/* Preparing conversion table */
 	for (int i = 0; i < NB_TYPE_CONVERSIONS; i++)
 		conversion_table[i].status = NOT_CONVERTED; /* for future printing purposes */
@@ -80,7 +78,6 @@ Conversions::Conversions( const Conversions &valueToCopy)
 	for (size_t i = 0; i < NB_TYPE_CONVERSIONS; i++)
 		conversion_table[i].status = valueToCopy.conversion_table[i].status;
 	converted = valueToCopy.converted;
-    std::cout << "Copy constructor called for Conversions" << std::endl;
 }
         
 Conversions& Conversions::operator = ( const Conversions &valueToCopy)
@@ -88,14 +85,10 @@ Conversions& Conversions::operator = ( const Conversions &valueToCopy)
 	for (size_t i = 0; i < NB_TYPE_CONVERSIONS; i++)
 		conversion_table[i].status = valueToCopy.conversion_table[i].status;
     converted = valueToCopy.converted;
-    std::cout << "Copy Assignement constructor called for Conversions" << std::endl;
     return (*this);
 }
 
-Conversions::~Conversions()
-{
-    std::cout << "Destructor called for Conversions" << std::endl;
-}   
+Conversions::~Conversions() {}   
 
 Conversions::t_types	Conversions::getType( const std::string &literal )
 {
@@ -255,38 +248,6 @@ void    Conversions::convertToInt( const std::string &literal)
 		conversion_table[T_DOUBLE].status = CONVERTED;
 	}
 }
-
-float Conversions::setFloat ( const std::string &literal )
-{
-	std::stringstream stringstream(literal);
-
-	double	temp;
-	stringstream >> temp;
-	float	f = static_cast<float>(temp);
-
-	if (f > temp)
-		return (1./0.);
-	else if (f < temp)
-		return (-1./0.);
-	else
-		return (f);
-}
-
-double Conversions::setDouble ( const std::string &literal )
-{
-	std::stringstream stringstream(literal);
-
-	long double	temp;
-	stringstream >> temp;
-	double	d = static_cast<double>(temp);
-
-	if (d > temp)
-		return (1./0.);
-	else if (d < temp)
-		return (-1./0.);
-	else
-		return (d);
-}
         
 void	Conversions::convertToFloat( const std::string &literal)
 {
@@ -298,7 +259,9 @@ void	Conversions::convertToFloat( const std::string &literal)
 	else if (literal == "nanf")
 		converted.f = std::numeric_limits<float>::quiet_NaN();
 	else
-		converted.f = setFloat(literal); // checking the limits
+	{
+		converted.f = setFloat(literal);
+	}
 	conversion_table[T_FLOAT].status = CONVERTED;
 
 	// Explicitely converting the other types.
@@ -317,6 +280,30 @@ void	Conversions::convertToFloat( const std::string &literal)
 	converted.d = static_cast<double>(converted.f);
 	conversion_table[T_DOUBLE].status = CONVERTED;
 }
+
+float	Conversions::setFloat(const std::string &literal)
+{
+	std::stringstream stringstream(literal);
+	double	temp;
+
+	stringstream >> temp; 
+	if (temp > std::numeric_limits<float>::max())
+		return (1./0.);
+	else
+		return((float)temp);
+}
+
+double	Conversions::setDouble(const std::string &literal)
+{
+	std::stringstream stringstream(literal);
+	long double	temp;
+
+	stringstream >> temp; 
+	if (temp > std::numeric_limits<double>::max())
+		return (1./0.);
+	else
+		return((double)temp);
+}
         
 void	Conversions::convertToDouble( const std::string &literal)
 {
@@ -328,7 +315,7 @@ void	Conversions::convertToDouble( const std::string &literal)
 	else if (literal == "nan")
 		converted.d = std::numeric_limits<double>::quiet_NaN();
 	else
-		converted.d = setDouble(literal); // checking the limits.
+		converted.d = setDouble(literal);
 	conversion_table[T_DOUBLE].status = CONVERTED;
 
 	// Explicitely converting the other types.
@@ -346,7 +333,6 @@ void	Conversions::convertToDouble( const std::string &literal)
 	}
 	converted.f = static_cast<float>(converted.d);
 	conversion_table[T_FLOAT].status = CONVERTED;
-
 }
 
 void	Conversions::allImpossible( const std::string &literal)
@@ -377,17 +363,17 @@ void    Conversions::printConversions( void ) const
 {
 	std::cout << "char: ";
 	if (!printError(conversion_table[T_CHAR].status))
-		std::cout << converted.c << std::endl;
+		std::cout << "'" << converted.c << "'" << std::endl;
 	std::cout << "int: ";
 	if (!printError(conversion_table[T_INT].status))
 		std::cout << converted.i << std::endl;
 	std::cout << "float: ";
 	if (!printError(conversion_table[T_FLOAT].status))
-		std::cout << std::fixed << std::setprecision(2) 
+		std::cout << std::fixed << std::setprecision(1) 
 					<< converted.f << "f" << std::endl;
 	std::cout << "double: ";
 	if (!printError(conversion_table[T_DOUBLE].status))
-		std::cout << std::fixed << std::setprecision(2)
+		std::cout << std::fixed << std::setprecision(1)
 					<< converted.d << std::endl;
 }
 
