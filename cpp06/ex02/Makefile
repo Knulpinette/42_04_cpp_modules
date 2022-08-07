@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= serialization
+NAME	= realtype
 
 # -*- Definitions of variables -*-
 
