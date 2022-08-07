@@ -29,7 +29,7 @@ OBJS			:= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 CC			= c++
 RM			= rm -f
 MAKE		= make
-CFLAGS 		= -std=c++98 -Wall -Wextra -Werror
+CFLAGS 		= -std=c++98 -Wall -Wextra -Werror 
 
 # Colors
 

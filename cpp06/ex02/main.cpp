@@ -16,18 +16,20 @@
 
 int main()
 {
-	int nb_tests = 10;
-	for (int i = 0; i < nb_tests; i++)
+	int nbTests = 10;
+	for (int i = 0; i < nbTests; i++)
 	{
 		Base* test = generate();
 		
-		std::cout << "identify(ptr):";
+		std::cout << "identify(ptr): ";
 		identify(test);
 		std::cout << std::endl;
 
-		std::cout << "identify(ref):";
+		std::cout << "identify(ref): ";
 		identify(*test);
 		std::cout << std::endl << std::endl;
+		
+		delete test;
 	}
 	return (0);
 }
