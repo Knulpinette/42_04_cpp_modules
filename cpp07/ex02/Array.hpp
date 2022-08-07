@@ -19,18 +19,17 @@ template <typename T> class Array {
                 size(n) 
                 {}
 
-        Array( const Array& valueToCopy ) {
-            size = valueToCopy.size;
-            arr = new T(valueToCopy.size);
-            *arr = *valueToCopy.arr;
+        Array( const Array& valueToCopy )
+            : arr( new T[valueToCopy.size] ), // careful to use [] and not () :D
+                size(valueToCopy.size)
+        {
             for (unsigned int i = 0; i < size; i++)
                 arr[i] = valueToCopy.arr[i];
         }
 
-        Array<T>& operator = ( const Array<T>& valueToCopy ) {
-             delete[] arr;
-            size = valueToCopy.size;
-            arr = new Array(valueToCopy);
+        Array<T>& operator = ( const Array<T> &valueToCopy ) {
+            delete[] arr;
+            arr = Array(valueToCopy);
         }
 
         ~Array() {
@@ -73,5 +72,18 @@ template <typename T> class Array {
             }
         };
 };
+
+// For testing purposes
+template <typename T> void printArray(Array<T>& arr, unsigned int length)
+{
+    for (unsigned int i = 0; i < length; i++)
+        std::cout << arr[i] << " ";
+}
+
+template <typename T> void printTypeArray(T& arr, unsigned int length)
+{
+    for (unsigned int i = 0; i < length; i++)
+        std::cout << arr[i] << " ";
+}
 
 #endif
