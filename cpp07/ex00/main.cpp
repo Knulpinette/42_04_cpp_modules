@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "templates.hpp"
 
 /*int main( void ) {
 	int a = 2;
