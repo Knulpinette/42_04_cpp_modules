@@ -65,7 +65,7 @@ class Conversions
         }				t_conversion;
 
 		// Variables
-		t_conversion_table	conversion_table[NB_TYPE_CONVERSIONS];
+		t_conversion_table	conversion_table[NB_TYPE_CONVERSIONS + 1];
 		t_conversion		converted;
 
 
