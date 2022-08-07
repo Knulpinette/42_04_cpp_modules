@@ -3,6 +3,10 @@
 
 #include <iostream>
 
+/* Here we need to declare 2 typenames because one will be for example
+    float (T) and float* (U)
+    */
+
 template <typename T, typename U> void iter(T arr[], size_t length, U anyFunction)
 {
     for (size_t i = 0; i < length; i++)
