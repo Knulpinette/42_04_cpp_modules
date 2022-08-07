@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= array
+NAME	= span
 
 # -*- Definitions of variables -*-
 

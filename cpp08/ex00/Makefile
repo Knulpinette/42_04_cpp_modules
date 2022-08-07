@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= array
+NAME	= easyfind
 
 # -*- Definitions of variables -*-
 

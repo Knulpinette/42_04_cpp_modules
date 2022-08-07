@@ -1,13 +1,8 @@
-#include <iostream>
-#include <exception>
-#include <ctime>
-#include <stdio.h>
-#include <stdlib.h>
 #include "Array.hpp"
 
 #define MAX_VAL 10
 
-// Tests taken from dda-silv github repo, thanks :)
+// Tests from cpp07 42 main.
 int main(void) {
 
     Array<int> numbers(MAX_VAL);

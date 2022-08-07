@@ -12,7 +12,7 @@
 
 # -*-🦕-*- Make C++ Piscine! -*-🦕-*- 
 
-NAME	= array
+NAME	= mutated_abomination
 
 # -*- Definitions of variables -*-
 

@@ -1,7 +1,11 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
+#include <iostream>
 #include <exception>
+#include <ctime>
+#include <stdio.h>
+#include <stdlib.h>
 
 template <typename T> class Array {
     private:
