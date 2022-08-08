@@ -46,6 +46,7 @@ int    Span::shortestSpan()
     unsigned int    current = *(this->span.end() - 1);  
     unsigned int    result = current;     
 
+    // calculating the smallest difference between two numbers.
     for ( std::vector<int>::const_iterator it = temp.span.begin() + 1;
                                             it < temp.span.end();
                                             it++ )
@@ -54,12 +55,13 @@ int    Span::shortestSpan()
         if (current < result)
             result = current;
     }
-
+    
     return (result);
 }
 
 int    Span::longestSpan()
 {
+    // returns the difference between the biggest and the smallest elements
     return (*std::max_element(this->span.begin(), this->span.end()) 
            - *std::min_element(this->span.begin(), this->span.end()));
 }
