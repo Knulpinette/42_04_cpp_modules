@@ -3,6 +3,8 @@
 int main()
 {
 	{
+		std::cout << "***** Testing vector int *****" 
+				<< std::endl << std::endl;
 		std::vector<int> vector1;
 
 		for (int i = 0; i < 5; i++)
@@ -35,10 +37,12 @@ int main()
 		if (searchInt4 != vector1.end())
 			std::cout << "found: " << *searchInt4 << std::endl;
 		else
-			std::cout << "not found: -2" << std::endl;
+			std::cout << "not found: -2" << std::endl << std::endl;
 	}
 
 	{
+		std::cout << "***** Testing vector float *****" 
+				<< std::endl << std::endl;
 		std::vector<float> vector2;
 
 		for (float i = 35; i < 45; i++)

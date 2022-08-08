@@ -23,8 +23,6 @@ int main()
 
 		// THROWING EXCEPTION
 	std::cout << "***** Testing with 6 numbers in an array of max_size 5 *****" 
-				<< std::endl
-				<< "/* Should return an exception. */" 
 				<< std::endl << std::endl;
 	Span sp2 = Span(5);
 
