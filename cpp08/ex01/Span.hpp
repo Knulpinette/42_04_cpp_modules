@@ -23,8 +23,12 @@ class Span {
 
         void    addNumber ( int nb );
 
+        // Range functions
+        int shortestSpan();
+        int longestSpan();
+
         // For testing purposes
-        void printSpan( Span &sp );
+        void printSpan();
 
         class OutOfBoundsException: public std::exception {
             const char * what () const throw () {

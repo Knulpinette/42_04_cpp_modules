@@ -35,10 +35,39 @@ void    Span::addNumber( int nb )
     }
 }
 
-void    Span::printSpan( Span &sp )
+int    Span::shortestSpan()
 {
-    for (std::vector<int>::iterator it = sp.span.begin(); 
-                                    it < sp.span.end(); 
+    // Creating copy of our instance and sorting it.
+    Span    temp = Span(*this);
+    std::sort(temp.span.begin(), temp.span.end());
+
+    // array is sorted so max value is last value 
+    // && span.end() returns an iterator to the position after the last element
+    unsigned int    current = *(this->span.end() - 1);  
+    unsigned int    result = current;     
+
+    for ( std::vector<int>::const_iterator it = temp.span.begin() + 1;
+                                            it < temp.span.end();
+                                            it++ )
+    {
+        current = *it - *(it - 1);
+        if (current < result)
+            result = current;
+    }
+
+    return (result);
+}
+
+int    Span::longestSpan()
+{
+    return (*std::max_element(this->span.begin(), this->span.end()) 
+           - *std::min_element(this->span.begin(), this->span.end()));
+}
+
+void    Span::printSpan()
+{
+    for (std::vector<int>::const_iterator it = this->span.begin(); 
+                                    it < this->span.end(); 
                                     it++)
         std::cout << *it << " ";
 }

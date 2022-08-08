@@ -11,8 +11,11 @@ int main()
 	sp1.addNumber(11);
 
 	std::cout << "Span vector: ";
-	sp1.printSpan(sp1);
+	sp1.printSpan();
 	std::cout << std::endl;
+
+	std::cout << sp1.shortestSpan() << std::endl;
+	std::cout << sp1.longestSpan() << std::endl;
 
 	Span sp2 = Span(5);
 
@@ -24,10 +27,11 @@ int main()
 	sp2.addNumber(52);
 
 	std::cout << "Span vector: ";
-	sp2.printSpan(sp2);
+	sp2.printSpan();
 	std::cout << std::endl;
 
-	//std::cout << sp.shortestSpan() << std::endl;
-	//std::cout << sp.longestSpan() << std::endl;
+	std::cout << sp2.shortestSpan() << std::endl;
+	std::cout << sp2.longestSpan() << std::endl;
+
 	return 0;
 }
