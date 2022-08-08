@@ -2,6 +2,7 @@
 
 int main()
 {
+	// ALL WORKING
 	Span sp1 = Span(5);
 
 	sp1.addNumber(6);
@@ -20,6 +21,7 @@ int main()
 	std::cout << "Longest span: " << sp1.longestSpan() << std::endl;
 	std::cout << std::endl;
 
+		// THROWING EXCEPTION
 	std::cout << "***** Testing with 6 numbers in an array of max_size 5 *****" 
 				<< std::endl
 				<< "/* Should return an exception. */" 
@@ -48,6 +50,7 @@ int main()
 	std::cout << "Longest span: " << sp2.longestSpan() << std::endl;
 	std::cout << std::endl;
 
+	// TESTING HIGH NUMBERS
 	std::cout << "***** Test with 12000 numbers *****" 
 				<< std::endl << std::endl;
 	Span sp3 = Span(12000);
@@ -58,6 +61,27 @@ int main()
 	std::cout << "Span vector 3 " << std::endl;
 	std::cout << "Shortest span: " << sp3.shortestSpan() << std::endl;
 	std::cout << "Longest span: " << sp3.longestSpan() << std::endl;
+	std::cout << std::endl;
+
+	// TESTING NEGATIVE NUMBERS
+	Span sp4 = Span(10);
+
+	sp4.addNumber(-6);
+	sp4.addNumber(-317);
+	sp4.addNumber(-3);
+	sp4.addNumber(-9);
+	sp4.addNumber(-114654654);
+	sp4.addNumber(-8798734);
+	sp4.addNumber(-39);
+
+	std::cout << "***** Testing negative numbers *****" 
+				<< std::endl << std::endl
+				<< "Span vector 4: ";
+	sp4.printSpan();
+	std::cout << std::endl;
+
+	std::cout << "Shortest span: " << sp4.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp4.longestSpan() << std::endl;
 	std::cout << std::endl;
 
 	return 0;
