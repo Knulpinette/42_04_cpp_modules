@@ -64,7 +64,7 @@ int    Span::shortestSpan()
 
     } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
-        return (0);
+        return (-1);
     }
 }
 
@@ -79,7 +79,7 @@ int    Span::longestSpan()
                 - *std::min_element(this->span.begin(), this->span.end()));
     } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
-        return (0);
+        return (-1);
     }
 }
 
