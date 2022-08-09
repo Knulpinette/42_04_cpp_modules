@@ -21,6 +21,7 @@ class Span {
         ~Span();
 
         void    addNumber ( int nb );
+        /* FORGOT TO DO THIS : void  addManyNumbers ( int nb ); */
 
         // Range functions
         int shortestSpan();

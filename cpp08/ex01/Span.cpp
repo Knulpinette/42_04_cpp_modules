@@ -1,5 +1,8 @@
 #include "Span.hpp"
 
+/* FORGOT TO DO THE ADDNUMBER EVOLVED FUNCTION WHICH 
+    ALLOWS YOU TO ADD MANY NUMBERS AT ONCE */
+
 Span::Span()
     : max_size(0) {}
 

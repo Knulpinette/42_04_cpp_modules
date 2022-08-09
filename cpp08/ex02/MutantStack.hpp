@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <stack>
+#include <vector>
+#include <deque>
 /*
     Here we only need the stack header because stack is itself a template
     using vectors and deque.
@@ -27,7 +29,7 @@
         using the 'auto' keyword.
     */
 
-template <typename T> class MutantStack: public std::stack<T> {
+template <typename T, class Container = std::deque<T> > class MutantStack: public std::stack<T> {
     public:
         typedef typename std::stack<T>::container_type::iterator iterator;
 

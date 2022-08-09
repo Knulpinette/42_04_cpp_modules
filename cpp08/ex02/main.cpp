@@ -42,7 +42,7 @@ static void test_subject(void) {
 static void test_10_numbers(void) {
 	std::cout << "*** Test 10 Numbers ***" << std::endl;
 
-	MutantStack<int> mstack;
+	MutantStack<int, std::vector<int> > mstack;
 
 	for (int i = 0; i < 10; i++) {
 		mstack.push(i);
