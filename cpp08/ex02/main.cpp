@@ -1,6 +1,7 @@
 #include "MutantStack.hpp"
 #include <iostream>
 #include <sstream>
+#include <list>
 
 static void test_subject(void) {
 	std::cout << "*** Test Subject ***" << std::endl;
@@ -62,7 +63,7 @@ static void test_10_numbers(void) {
 	std::cout << std::endl;
 }
 
-static void test_10_string(void) {
+static void test_10_strings(void) {
 	std::cout << "*** Test 10 Strings ***" << std::endl;
 
 	MutantStack<std::string> mstack;
@@ -90,8 +91,35 @@ static void test_10_string(void) {
 	std::cout << std::endl;
 }
 
+static void test_10_lists(void) {
+	std::cout << "*** Test 10 Lists ***" << std::endl
+				<< "/* For comparison */" << std::endl;
+
+	std::list<int> lstack;
+
+	// https://www.geeksforgeeks.org/list-cpp-stl/ 
+	for (int i = 0; i < 10; i++) {
+		lstack.push_back(i); 
+	}
+
+	std::cout << "Top: " << lstack.back() << std::endl;
+	std::cout << "Size: " << lstack.size() << std::endl;
+
+	for (std::list<int>::iterator it = lstack.begin(); 
+									it != lstack.end(); 
+									it++) {
+		std::cout << *it << std::endl;
+	}
+
+	// Testing Deep Copy
+	std::list<int> s(lstack);
+
+	std::cout << std::endl;
+}
+
 int main(void) {
 	test_subject();
 	test_10_numbers();
-	test_10_string();
+	test_10_strings();
+	test_10_lists();
 }

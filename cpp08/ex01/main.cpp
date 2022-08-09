@@ -8,6 +8,7 @@ int main()
 	std::cout << "***** Testing a empty span *****" 
 				<< std::endl 
 				<< "/* Should throw 2 exceptions */" 
+				<< std::endl
 				<< std::endl;
 
 	std::cout << "Shortest span: " << sp0.shortestSpan() << std::endl;
@@ -20,6 +21,7 @@ int main()
 	std::cout << "***** Testing a span with 1 element *****" 
 				<< std::endl 
 				<< "/* Should throw 2 exceptions */" 
+				<< std::endl
 				<< std::endl;
 
 	sp.addNumber(6);

@@ -73,6 +73,7 @@ int    Span::longestSpan()
     try { 
         if (this->span.size() < 2)
             throw OutOfBoundsException();
+        else   
         // returns the difference between the biggest and the smallest elements
         return (*std::max_element(this->span.begin(), this->span.end()) 
                 - *std::min_element(this->span.begin(), this->span.end()));
