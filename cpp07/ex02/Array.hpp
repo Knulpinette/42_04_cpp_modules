@@ -34,6 +34,7 @@ template <typename T> class Array {
         Array<T>& operator = ( const Array<T> &valueToCopy ) {
             delete[] arr;
             arr = Array(valueToCopy);
+            return *this;
         }
 
         ~Array() {

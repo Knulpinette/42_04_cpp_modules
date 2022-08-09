@@ -2,6 +2,33 @@
 
 int main()
 {
+	// EMPTY SPAN
+	Span sp0 = Span();
+
+	std::cout << "***** Testing a empty span *****" 
+				<< std::endl 
+				<< "/* Should throw 2 exceptions */" 
+				<< std::endl;
+
+	std::cout << "Shortest span: " << sp0.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp0.longestSpan() << std::endl;
+	std::cout << std::endl;
+
+	// ONE ELEMENT IN SPAN
+	Span sp = Span(1);
+
+	std::cout << "***** Testing a span with 1 element *****" 
+				<< std::endl 
+				<< "/* Should throw 2 exceptions */" 
+				<< std::endl;
+
+	sp.addNumber(6);
+
+	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+	std::cout << std::endl;
+
+
 	// ALL WORKING
 	Span sp1 = Span(5);
 

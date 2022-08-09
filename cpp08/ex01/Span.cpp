@@ -38,32 +38,48 @@ void    Span::addNumber( int nb )
 int    Span::shortestSpan()
 {
     // Creating copy of our instance and sorting it.
-    Span    temp = Span(*this);
-    std::sort(temp.span.begin(), temp.span.end());
+    try {
 
-    // array is sorted so max value is last value 
-    // && span.end() returns an iterator to the position after the last element
-    unsigned int    current = *(this->span.end() - 1);  
-    unsigned int    result = current;     
+        if (this->span.size() < 2)
+            throw OutOfBoundsException();
 
-    // calculating the smallest difference between two numbers.
-    for ( std::vector<int>::const_iterator it = temp.span.begin() + 1;
-                                            it < temp.span.end();
-                                            it++ )
-    {
-        current = *it - *(it - 1);
-        if (current < result)
-            result = current;
+        Span    temp = Span(*this);
+        std::sort(temp.span.begin(), temp.span.end());
+
+        // array is sorted so max value is last value 
+        // && span.end() returns an iterator to the position after the last element
+        unsigned int    current = *(this->span.end() - 1);  
+        unsigned int    result = current;     
+
+        // calculating the smallest difference between two numbers.
+        for ( std::vector<int>::const_iterator it = temp.span.begin() + 1;
+                                                it < temp.span.end();
+                                                it++ )
+        {
+            current = *it - *(it - 1);
+            if (current < result)
+                result = current;
+        }
+        return (result);
+
+    } catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
+        return (0);
     }
-    
-    return (result);
 }
 
 int    Span::longestSpan()
 {
-    // returns the difference between the biggest and the smallest elements
-    return (*std::max_element(this->span.begin(), this->span.end()) 
-           - *std::min_element(this->span.begin(), this->span.end()));
+    try { 
+        if (this->span.size() < 2)
+            throw OutOfBoundsException();
+        // returns the difference between the biggest and the smallest elements
+        return (*std::max_element(this->span.begin(), this->span.end()) 
+                - *std::min_element(this->span.begin(), this->span.end()));
+    } catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
+        return (0);
+    }
 }
 
 void    Span::printSpan()

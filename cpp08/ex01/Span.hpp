@@ -13,9 +13,8 @@ class Span {
         const unsigned int  max_size; 
         std::vector<int> span;
 
-        Span(); // we don't need that constructor so we put it in private
-
     public:
+        Span();
         Span( unsigned int n );
         Span( const Span &valueToCopy );
         Span &operator = ( const Span &valueToCopy );
